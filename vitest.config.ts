@@ -17,7 +17,9 @@ export default defineConfig({
 				'src/**/*.{test,spec}.{js,ts}',
 				'src/**/*.d.ts',
 				'src/app.html',
-				'src/routes/**/+*.{js,ts}'
+				'src/routes/**/+*.{js,ts}',
+				'src/lib/paraglide/**/*',
+				'src/hooks.*.ts'
 			]
 		}
 	}
