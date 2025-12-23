@@ -334,37 +334,46 @@ export const recipes: BrewRecipe[] = [
 /**
  * Get recipe for brew method, roast level, and grinder.
  *
- * FALLBACK BEHAVIOR: If no exact grinder match found, returns any recipe for the
- * brew method and roast level. The returned recipe's grindSetting may be for a
- * different grinder. Consumers should check grindSetting[].grinderId matches
- * requested grinderId before displaying grind settings to users.
- *
  * @param brewMethod - Brew method (espresso, v60, chemex, aeropress)
  * @param roastLevel - Roast level (light, medium, dark)
  * @param grinderId - Grinder ID (e.g., 'commandante-c40-std', 'timemore-078s')
- * @returns Recipe if found, or undefined if no match for brew method + roast level
+ * @returns Recipe if found, or undefined if no exact match exists
  */
 export function getRecipe(
 	brewMethod: BrewMethod,
 	roastLevel: RoastLevel,
 	grinderId: string
 ): BrewRecipe | undefined {
-	// Try to find exact match
-	let recipe = recipes.find(
+	return recipes.find(
 		(r) =>
 			r.brewMethod === brewMethod &&
 			r.roastLevel === roastLevel &&
 			r.grindSetting.some((gs) => gs.grinderId === grinderId)
 	);
-
-	// If no exact match, find any recipe for the brew method and roast
-	if (!recipe) {
-		recipe = recipes.find((r) => r.brewMethod === brewMethod && r.roastLevel === roastLevel);
-	}
-
-	return recipe;
 }
 
 export function getRecipesByBrewMethod(brewMethod: BrewMethod): BrewRecipe[] {
 	return recipes.filter((r) => r.brewMethod === brewMethod);
+}
+
+/**
+ * Get grinder IDs that have recipes for the given brew method and roast level.
+ *
+ * @param brewMethod - Brew method (espresso, v60, chemex, aeropress)
+ * @param roastLevel - Roast level (light, medium, dark)
+ * @returns Array of grinder IDs that have recipes for this combination
+ */
+export function getAvailableGrinderIds(
+	brewMethod: BrewMethod,
+	roastLevel: RoastLevel
+): string[] {
+	const grinderIds = new Set<string>();
+
+	recipes
+		.filter((r) => r.brewMethod === brewMethod && r.roastLevel === roastLevel)
+		.forEach((r) => {
+			r.grindSetting.forEach((gs) => grinderIds.add(gs.grinderId));
+		});
+
+	return Array.from(grinderIds);
 }

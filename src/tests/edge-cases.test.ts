@@ -96,6 +96,9 @@ describe('Edge Cases', () => {
 
 	describe('Grinder search edge cases', () => {
 		it('handles empty search gracefully', async () => {
+			wizardStore.setBrewMethod('espresso');
+			wizardStore.setRoastLevel('medium');
+
 			render(StepGrinder);
 
 			const searchInput = screen.getByPlaceholderText('Search grinders...');
@@ -108,6 +111,9 @@ describe('Edge Cases', () => {
 		});
 
 		it('handles special characters in search', async () => {
+			wizardStore.setBrewMethod('espresso');
+			wizardStore.setRoastLevel('medium');
+
 			render(StepGrinder);
 
 			const searchInput = screen.getByPlaceholderText('Search grinders...');
@@ -117,6 +123,9 @@ describe('Edge Cases', () => {
 		});
 
 		it('searches by brand and name', async () => {
+			wizardStore.setBrewMethod('espresso');
+			wizardStore.setRoastLevel('medium');
+
 			render(StepGrinder);
 
 			const searchInput = screen.getByPlaceholderText('Search grinders...');
@@ -134,12 +143,17 @@ describe('Edge Cases', () => {
 			expect(buttons.length).toBeGreaterThan(0);
 		});
 
-		it('displays all grinder types', () => {
+		it('displays only compatible grinder types', () => {
+			wizardStore.setBrewMethod('v60');
+			wizardStore.setRoastLevel('medium');
+
 			render(StepGrinder);
 
 			const buttons = screen.getAllByRole('button', { name: /Select/ });
 
-			expect(buttons.length).toBe(grinders.length);
+			// Should only show Commandante grinders for V60
+			expect(buttons.length).toBeGreaterThan(0);
+			expect(buttons.length).toBeLessThan(grinders.length);
 		});
 	});
 

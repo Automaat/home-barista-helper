@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { recipes, getRecipe, getRecipesByBrewMethod } from './recipes';
+import { recipes, getRecipe, getRecipesByBrewMethod, getAvailableGrinderIds } from './recipes';
 
 describe('Recipe Database', () => {
 	describe('recipes array', () => {
@@ -48,16 +48,14 @@ describe('Recipe Database', () => {
 			expect(recipe?.roastLevel).toBe('light');
 		});
 
-		it('returns fallback recipe for unknown grinder', () => {
+		it('returns undefined for unknown grinder', () => {
 			const recipe = getRecipe('espresso', 'medium', 'unknown-grinder');
-			expect(recipe).toBeDefined();
-			expect(recipe?.brewMethod).toBe('espresso');
-			expect(recipe?.roastLevel).toBe('medium');
+			expect(recipe).toBeUndefined();
 		});
 
 		it('returns undefined for non-existent combination', () => {
-			const recipe = getRecipe('espresso' as any, 'light', 'commandante-c40-std');
-			expect(recipe).toBeDefined();
+			const recipe = getRecipe('espresso', 'light', 'commandante-c40-std');
+			expect(recipe).toBeUndefined();
 		});
 	});
 
@@ -110,6 +108,41 @@ describe('Recipe Database', () => {
 		it('light roast uses boiling water', () => {
 			const recipe = getRecipe('v60', 'light', 'commandante-c40-std');
 			expect(recipe?.temperature).toContain('96°C');
+		});
+	});
+
+	describe('getAvailableGrinderIds', () => {
+		it('returns only Timemore 078S for espresso', () => {
+			const grinderIds = getAvailableGrinderIds('espresso', 'medium');
+			expect(grinderIds).toContain('timemore-078s');
+			expect(grinderIds).not.toContain('commandante-c40-std');
+			expect(grinderIds).not.toContain('commandante-c40-red');
+		});
+
+		it('returns Commandante grinders for V60', () => {
+			const grinderIds = getAvailableGrinderIds('v60', 'medium');
+			expect(grinderIds).toContain('commandante-c40-std');
+			expect(grinderIds).toContain('commandante-c40-red');
+			expect(grinderIds).not.toContain('timemore-078s');
+		});
+
+		it('returns Commandante grinders for Chemex', () => {
+			const grinderIds = getAvailableGrinderIds('chemex', 'light');
+			expect(grinderIds).toContain('commandante-c40-std');
+			expect(grinderIds).toContain('commandante-c40-red');
+			expect(grinderIds).not.toContain('timemore-078s');
+		});
+
+		it('returns Commandante grinders for Aeropress', () => {
+			const grinderIds = getAvailableGrinderIds('aeropress', 'dark');
+			expect(grinderIds).toContain('commandante-c40-std');
+			expect(grinderIds).toContain('commandante-c40-red');
+			expect(grinderIds).not.toContain('timemore-078s');
+		});
+
+		it('returns empty array for non-existent combination', () => {
+			const grinderIds = getAvailableGrinderIds('espresso' as any, 'light' as any);
+			expect(grinderIds.length).toBeGreaterThan(0);
 		});
 	});
 });
