@@ -1,0 +1,8 @@
+{
+	"rules": {
+		"correctness": "error",
+		"suspicious": "error",
+		"perf": "warn"
+	},
+	"ignorePatterns": ["node_modules", ".svelte-kit", "build"]
+}

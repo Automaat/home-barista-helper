@@ -1,0 +1,21 @@
+[tools]
+node = "22"
+pnpm = "10.26.0"
+
+[tasks.dev]
+run = "pnpm dev"
+
+[tasks.build]
+run = "pnpm build"
+
+[tasks.lint]
+run = "oxlint src"
+
+[tasks.format]
+run = "pnpm format"
+
+[tasks.check]
+run = "pnpm check"
+
+[tasks.preview]
+run = "pnpm preview"

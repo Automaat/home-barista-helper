@@ -1,0 +1,44 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", ":pinDigestsDisabled"],
+	"schedule": ["before 3am on Monday"],
+	"timezone": "Europe/Warsaw",
+	"labels": ["dependencies"],
+	"separateMinorPatch": true,
+	"prConcurrentLimit": 3,
+	"prHourlyLimit": 2,
+	"commitMessagePrefix": "deps:",
+	"commitMessageAction": "update",
+	"commitMessageTopic": "{{depName}}",
+	"semanticCommits": "enabled",
+	"packageRules": [
+		{
+			"description": "Pin GitHub Actions to commit SHA",
+			"matchManagers": ["github-actions"],
+			"pinDigests": true,
+			"separateMinorPatch": false,
+			"groupName": "GitHub Actions"
+		},
+		{
+			"description": "Group Svelte packages",
+			"matchPackagePatterns": ["^svelte", "^@sveltejs/"],
+			"groupName": "Svelte packages"
+		},
+		{
+			"description": "Group Tailwind packages",
+			"matchPackagePatterns": ["^tailwindcss", "^@tailwindcss/"],
+			"groupName": "Tailwind packages"
+		},
+		{
+			"description": "Group linting packages",
+			"matchPackagePatterns": ["^oxlint", "^eslint", "^prettier"],
+			"groupName": "Linting packages"
+		},
+		{
+			"description": "Automerge devDependencies minor/patch",
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"automerge": true
+		}
+	]
+}
