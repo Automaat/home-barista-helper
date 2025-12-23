@@ -196,10 +196,12 @@
 
 | Model         | Clicks       |
 | ------------- | ------------ |
-| Standard Axle | 40-45 clicks |
-| Red Clix      | 55-65 clicks |
+| Standard Axle | 25-34 clicks |
+| Red Clix      | 50-68 clicks |
 
-> 📄 **STATED**: "Chemex: Standard-axle model: 40-45 clicks, Red Clix model: 55-65 clicks" [Source: Coffeedesk]
+> 📄 **STATED**: "Pour over: 16-34 clicks (Standard-axle), 31-68 clicks (Red Clix)" [Source: Honest Coffee Guide]
+
+> 📄 **STATED**: "Chemex: 26-30 clicks" [Source: Tasting Grounds]
 
 **Note:** Chemex requires COARSER than V60 due to thicker filters
 
@@ -222,8 +224,8 @@
 
 | Parameter        | Light Roast    | Medium Roast | Dark Roast   |
 | ---------------- | -------------- | ------------ | ------------ |
-| Grind (Standard) | 38-42 clicks   | 42-45 clicks | 45-48 clicks |
-| Grind (Red Clix) | 52-58 clicks   | 58-65 clicks | 65-72 clicks |
+| Grind (Standard) | 25-28 clicks   | 28-31 clicks | 31-34 clicks |
+| Grind (Red Clix) | 50-56 clicks   | 56-62 clicks | 62-68 clicks |
 | Temperature      | 96°C (boiling) | 93°C         | 90°C         |
 | Ratio            | 1:16 - 1:17    | 1:15 - 1:16  | 1:14 - 1:15  |
 | Brew Time        | 4:00 - 4:45    | 3:30 - 4:15  | 3:15 - 4:00  |
@@ -386,7 +388,7 @@
 | Method    | Light Roast  | Medium       | Dark Roast   |
 | --------- | ------------ | ------------ | ------------ |
 | V60       | 22-25 clicks | 25-28 clicks | 28-32 clicks |
-| Chemex    | 38-42 clicks | 42-45 clicks | 45-48 clicks |
+| Chemex    | 25-28 clicks | 28-31 clicks | 31-34 clicks |
 | Aeropress | 18-21 clicks | 21-24 clicks | 24-28 clicks |
 
 ### Brew Time Adjustment
@@ -436,7 +438,7 @@ IF switching to DARKER roast:
 | 20-22  | Standard Aeropress       |
 | 23-28  | V60 (single cup)         |
 | 28-32  | V60 (larger brew)        |
-| 40-45  | Chemex                   |
+| 25-34  | Chemex                   |
 
 ---
 
@@ -471,9 +473,9 @@ ITERATE → Adjust based on results
 | #   | Source               | URL                                                                                                                                | Type     |
 | --- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | 1   | Espresso Aficionados | [espressoaf.com](https://espressoaf.com/guides/beginner.html)                                                                      | Guide    |
-| 2   | Honest Coffee Guide  | [honestcoffeeguide.com](https://honestcoffeeguide.com/timemore-sculptor-078s-grind-settings/)                                      | Settings |
+| 2   | Honest Coffee Guide  | [honestcoffeeguide.com](https://honestcoffeeguide.com/comandante-c40-mk4-grind-settings/)                                          | Settings |
 | 3   | Basic Barista        | [thebasicbarista.com](https://thebasicbarista.com/en-us/blogs/article/comandante-grind-size-chart)                                 | Chart    |
-| 4   | Coffeedesk           | [coffeedesk.com](https://www.coffeedesk.com/blog/how-to-set-the-comandante-grinder/)                                               | Guide    |
+| 4   | Tasting Grounds      | [tastinggrounds.com](https://tastinggrounds.com/learn/grind-sizes)                                                                 | Chart    |
 | 5   | Counter Culture      | [counterculturecoffee.com](https://counterculturecoffee.com/blogs/counter-culture-coffee/guide-to-the-aeropress)                   | Guide    |
 | 6   | Low Key Coffee Snobs | [lowkeycoffeesnobs.com](https://www.lowkeycoffeesnobs.com/hario-v60-recipe/)                                                       | Recipe   |
 | 7   | Bean Ground          | [beanground.com](https://www.beanground.com/chemex-grind-size/)                                                                    | Guide    |
