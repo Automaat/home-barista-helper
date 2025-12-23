@@ -363,10 +363,7 @@ export function getRecipesByBrewMethod(brewMethod: BrewMethod): BrewRecipe[] {
  * @param roastLevel - Roast level (light, medium, dark)
  * @returns Array of grinder IDs that have recipes for this combination
  */
-export function getAvailableGrinderIds(
-	brewMethod: BrewMethod,
-	roastLevel: RoastLevel
-): string[] {
+export function getAvailableGrinderIds(brewMethod: BrewMethod, roastLevel: RoastLevel): string[] {
 	const grinderIds = new Set<string>();
 
 	recipes
