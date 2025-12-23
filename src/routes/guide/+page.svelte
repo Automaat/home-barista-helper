@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { wizardStore } from '$lib/stores/wizard';
-	import type { WizardState } from '$lib/stores/wizard';
 	import WizardContainer from '$lib/components/wizard/WizardContainer.svelte';
 	import StepBrewMethod from '$lib/components/wizard/StepBrewMethod.svelte';
 	import StepRoastLevel from '$lib/components/wizard/StepRoastLevel.svelte';
@@ -10,22 +9,17 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { HelpCircle } from 'lucide-svelte';
 
-	let wizardState = $state<WizardState>($wizardStore);
 	let showTroubleshooting = $state(false);
-
-	$effect(() => {
-		wizardState = $wizardStore;
-	});
 </script>
 
 <WizardContainer>
-	{#if wizardState.currentStep === 0}
+	{#if $wizardStore.currentStep === 0}
 		<StepBrewMethod />
-	{:else if wizardState.currentStep === 1}
+	{:else if $wizardStore.currentStep === 1}
 		<StepRoastLevel />
-	{:else if wizardState.currentStep === 2}
+	{:else if $wizardStore.currentStep === 2}
 		<StepGrinder />
-	{:else if wizardState.currentStep === 3}
+	{:else if $wizardStore.currentStep === 3}
 		<div class="relative">
 			<ResultsDisplay />
 			<div class="fixed bottom-20 right-4 z-10">

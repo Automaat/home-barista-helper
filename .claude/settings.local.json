@@ -21,7 +21,10 @@
       "Bash(pnpm exec paraglide-js compile:*)",
       "Bash(pnpm list:*)",
       "Bash(pnpm exec svelte-kit:*)",
-      "Bash(pnpm test:*)"
+      "Bash(pnpm test:*)",
+      "Bash(pnpm update:*)",
+      "Bash(pnpm remove:*)",
+      "Bash(pnpm add:*)"
     ],
     "deny": [],
     "ask": []
