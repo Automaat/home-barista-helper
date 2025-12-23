@@ -12,7 +12,8 @@
 			"Bash(pnpm test:coverage:*)",
 			"Bash(pnpm prettier:*)",
 			"Bash(pnpm lint:*)",
-			"Bash(pnpm check:*)"
+			"Bash(pnpm check:*)",
+			"Bash(git pull:*)"
 		],
 		"deny": [],
 		"ask": []
