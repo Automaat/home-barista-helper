@@ -92,7 +92,7 @@ export const troubleshootingTree: TroubleshootingNode[] = [
 				nextNode: 'uneven-pourover'
 			},
 			{
-				label: 'Aeropress',
+				label: 'AeroPress',
 				nextNode: 'uneven-aeropress'
 			}
 		]
@@ -141,7 +141,7 @@ export const troubleshootingTree: TroubleshootingNode[] = [
 	},
 	{
 		id: 'uneven-aeropress',
-		question: 'Aeropress: Fix brewing technique',
+		question: 'AeroPress: Fix brewing technique',
 		answers: [
 			{
 				label: 'Improve stirring',
@@ -150,7 +150,7 @@ export const troubleshootingTree: TroubleshootingNode[] = [
 			},
 			{
 				label: 'Level coffee bed',
-				solution: 'Tap Aeropress gently to level grounds before adding water',
+				solution: 'Tap AeroPress gently to level grounds before adding water',
 				adjustment: 'technique'
 			},
 			{

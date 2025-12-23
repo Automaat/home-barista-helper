@@ -331,6 +331,19 @@ export const recipes: BrewRecipe[] = [
 	}
 ];
 
+/**
+ * Get recipe for brew method, roast level, and grinder.
+ *
+ * FALLBACK BEHAVIOR: If no exact grinder match found, returns any recipe for the
+ * brew method and roast level. The returned recipe's grindSetting may be for a
+ * different grinder. Consumers should check grindSetting[].grinderId matches
+ * requested grinderId before displaying grind settings to users.
+ *
+ * @param brewMethod - Brew method (espresso, v60, chemex, aeropress)
+ * @param roastLevel - Roast level (light, medium, dark)
+ * @param grinderId - Grinder ID (e.g., 'commandante-c40-std', 'timemore-078s')
+ * @returns Recipe if found, or undefined if no match for brew method + roast level
+ */
 export function getRecipe(
 	brewMethod: BrewMethod,
 	roastLevel: RoastLevel,
