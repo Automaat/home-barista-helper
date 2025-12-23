@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Top opening -->
+  <ellipse cx="50" cy="15" rx="20" ry="3" fill="none" />
+  <!-- Upper cone -->
+  <path d="M 30 15 L 40 45" fill="none" />
+  <path d="M 70 15 L 60 45" fill="none" />
+  <!-- Wooden collar -->
+  <rect x="38" y="43" width="24" height="8" rx="2" fill="currentColor" opacity="0.3" />
+  <line x1="40" y1="45" x2="60" y2="45" opacity="0.6" />
+  <line x1="40" y1="47" x2="60" y2="47" opacity="0.6" />
+  <line x1="40" y1="49" x2="60" y2="49" opacity="0.6" />
+  <!-- Lower cone -->
+  <path d="M 40 51 L 25 85" fill="none" />
+  <path d="M 60 51 L 75 85" fill="none" />
+  <!-- Bottom -->
+  <ellipse cx="50" cy="85" rx="25" ry="4" fill="none" />
+  <!-- Pour spout -->
+  <path d="M 72 85 L 78 87" fill="none" stroke-width="1.5" />
+</svg>
