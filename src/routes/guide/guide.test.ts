@@ -107,7 +107,6 @@ describe('Guide Page', () => {
 		expect(button).toHaveClass('min-w-[56px]');
 	});
 
-
 	it('troubleshooting modal is closed by default', () => {
 		render(GuidePage);
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();

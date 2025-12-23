@@ -3,6 +3,35 @@ import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import TroubleshootingTree from './TroubleshootingTree.svelte';
 
+/**
+ * Helper to navigate through troubleshooting tree to reach a solution.
+ * @param user - userEvent instance
+ * @returns true if solution reached, false otherwise
+ */
+async function navigateToSolution(user: ReturnType<typeof userEvent.setup>): Promise<boolean> {
+	// Navigate until we find a solution or run out of options
+	for (let i = 0; i < 5; i++) {
+		// Check if we've reached a solution
+		if (screen.queryByText(/Recommended Solution/i)) {
+			return true;
+		}
+
+		const buttons = screen.getAllByRole('button').filter((btn) =>
+			!btn.getAttribute('aria-label')?.includes('Close') &&
+			!btn.textContent?.includes('Start Over') &&
+			!btn.textContent?.includes('Try Another Issue')
+		);
+
+		if (buttons.length === 0) {
+			return false;
+		}
+
+		await user.click(buttons[0]);
+	}
+
+	return screen.queryByText(/Recommended Solution/i) !== null;
+}
+
 describe('TroubleshootingTree', () => {
 	const user = userEvent.setup();
 
@@ -104,14 +133,11 @@ describe('TroubleshootingTree', () => {
 		});
 
 		const answerButtons = screen.getAllByRole('button').filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
-		if (answerButtons.length > 0) {
-			await user.click(answerButtons[0]);
+		expect(answerButtons.length).toBeGreaterThan(0);
+		await user.click(answerButtons[0]);
 
-			const startOverButton = screen.queryByRole('button', { name: /Start Over/i });
-			if (startOverButton) {
-				expect(startOverButton).toBeInTheDocument();
-			}
-		}
+		const startOverButton = screen.getByRole('button', { name: /Start Over/i });
+		expect(startOverButton).toBeInTheDocument();
 	});
 
 	it('resets to root when Start Over clicked', async () => {
@@ -120,15 +146,12 @@ describe('TroubleshootingTree', () => {
 		});
 
 		const answerButtons = screen.getAllByRole('button').filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
-		if (answerButtons.length > 0) {
-			await user.click(answerButtons[0]);
+		expect(answerButtons.length).toBeGreaterThan(0);
+		await user.click(answerButtons[0]);
 
-			const startOverButton = screen.queryByRole('button', { name: /Start Over/i });
-			if (startOverButton) {
-				await user.click(startOverButton);
-				expect(screen.queryByRole('button', { name: /Start Over/i })).not.toBeInTheDocument();
-			}
-		}
+		const startOverButton = screen.getByRole('button', { name: /Start Over/i });
+		await user.click(startOverButton);
+		expect(screen.queryByRole('button', { name: /Start Over/i })).not.toBeInTheDocument();
 	});
 
 	it('has accessible dialog attributes', () => {
@@ -177,28 +200,11 @@ describe('TroubleshootingTree', () => {
 			props: { open: true }
 		});
 
-		const answerButtons = screen.getAllByRole('button').filter((btn) =>
-			!btn.getAttribute('aria-label')?.includes('Close') &&
-			!btn.textContent?.includes('Start Over')
-		);
+		const reachedSolution = await navigateToSolution(user);
+		expect(reachedSolution).toBe(true);
 
-		if (answerButtons.length > 0) {
-			for (let i = 0; i < 3 && i < answerButtons.length; i++) {
-				const buttons = screen.getAllByRole('button').filter((btn) =>
-					!btn.getAttribute('aria-label')?.includes('Close') &&
-					!btn.textContent?.includes('Start Over') &&
-					!btn.textContent?.includes('Try Another Issue')
-				);
-				if (buttons.length > 0) {
-					await user.click(buttons[0]);
-				}
-			}
-
-			const tryAnotherButton = screen.queryByRole('button', { name: /Try Another Issue/i });
-			if (tryAnotherButton) {
-				expect(tryAnotherButton).toBeInTheDocument();
-			}
-		}
+		const tryAnotherButton = screen.getByRole('button', { name: /Try Another Issue/i });
+		expect(tryAnotherButton).toBeInTheDocument();
 	});
 
 	it('resets when Try Another Issue clicked', async () => {
@@ -206,28 +212,11 @@ describe('TroubleshootingTree', () => {
 			props: { open: true }
 		});
 
-		const answerButtons = screen.getAllByRole('button').filter((btn) =>
-			!btn.getAttribute('aria-label')?.includes('Close') &&
-			!btn.textContent?.includes('Start Over')
-		);
+		const reachedSolution = await navigateToSolution(user);
+		expect(reachedSolution).toBe(true);
 
-		if (answerButtons.length > 0) {
-			for (let i = 0; i < 3 && i < answerButtons.length; i++) {
-				const buttons = screen.getAllByRole('button').filter((btn) =>
-					!btn.getAttribute('aria-label')?.includes('Close') &&
-					!btn.textContent?.includes('Start Over') &&
-					!btn.textContent?.includes('Try Another Issue')
-				);
-				if (buttons.length > 0) {
-					await user.click(buttons[0]);
-				}
-			}
-
-			const tryAnotherButton = screen.queryByRole('button', { name: /Try Another Issue/i });
-			if (tryAnotherButton) {
-				await user.click(tryAnotherButton);
-				expect(screen.queryByText(/Recommended Solution/i)).not.toBeInTheDocument();
-			}
-		}
+		const tryAnotherButton = screen.getByRole('button', { name: /Try Another Issue/i });
+		await user.click(tryAnotherButton);
+		expect(screen.queryByText(/Recommended Solution/i)).not.toBeInTheDocument();
 	});
 });
