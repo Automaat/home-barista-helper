@@ -188,3 +188,13 @@
 .animate-success {
 	animation: success-bounce 300ms ease-in-out;
 }
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-fade-in,
+	.animate-slide-up,
+	.animate-scale-in,
+	.animate-spin,
+	.animate-success {
+		animation: none !important;
+	}
+}

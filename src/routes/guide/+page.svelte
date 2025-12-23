@@ -32,7 +32,7 @@
 				<Button
 					onclick={() => (showTroubleshooting = true)}
 					size="lg"
-					class="min-h-[56px] min-w-[56px] gap-2 rounded-full shadow-lg transition-transform active:scale-95"
+					class="min-h-[56px] min-w-[56px] gap-2 rounded-full shadow-lg transition-transform active:scale-[0.97]"
 					aria-label="Open troubleshooting"
 				>
 					<HelpCircle class="h-6 w-6" />

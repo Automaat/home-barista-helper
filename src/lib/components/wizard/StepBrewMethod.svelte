@@ -30,7 +30,7 @@
 				aria-label="Select {method.label}"
 			>
 				<div class="flex items-center gap-4">
-					<div class="rounded-full bg-primary/10 p-3 transition-transform group-active:scale-90">
+					<div class="rounded-full bg-primary/10 p-3">
 						<svelte:component this={method.icon} class="h-8 w-8 text-primary" />
 					</div>
 					<h2 class="text-xl font-semibold">{method.label}</h2>
