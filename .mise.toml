@@ -17,5 +17,8 @@ run = "pnpm format"
 [tasks.check]
 run = "pnpm check"
 
+[tasks.test]
+run = "pnpm test"
+
 [tasks.preview]
 run = "pnpm preview"
