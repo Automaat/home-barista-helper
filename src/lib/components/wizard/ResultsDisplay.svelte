@@ -114,8 +114,6 @@
 
 	<!-- Fixed Bottom Actions -->
 	<div class="fixed bottom-0 left-0 right-0 border-t bg-background p-4">
-		<Button class="min-h-[48px] w-full text-base" onclick={() => goto('/')}>
-			Start Over
-		</Button>
+		<Button class="min-h-[48px] w-full text-base" onclick={() => goto('/')}>Start Over</Button>
 	</div>
 </div>
