@@ -41,7 +41,7 @@
 		{#each filteredGrinders as grinder (grinder.id)}
 			<button
 				onclick={() => selectGrinder(grinder)}
-				class="min-h-[68px] w-full rounded-lg border-2 border-border bg-card p-4 text-left transition-all hover:border-primary hover:bg-accent active:scale-95"
+				class="min-h-[68px] w-full rounded-lg border-2 border-border bg-card p-4 text-left transition-all hover:border-primary hover:bg-accent active:scale-[0.98]"
 				aria-label="Select {grinder.brand} {grinder.name}"
 			>
 				<div class="flex items-center justify-between">
@@ -57,7 +57,7 @@
 				</div>
 			</button>
 		{:else}
-			<div class="py-8 text-center text-muted-foreground">
+			<div class="animate-fade-in py-8 text-center text-muted-foreground">
 				No grinders found matching "{searchQuery}"
 			</div>
 		{/each}

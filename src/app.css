@@ -119,3 +119,72 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+/* Lightweight mobile-first animations */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slide-up {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scale-in {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes success-bounce {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+}
+
+/* Animation utilities - mobile optimized (<200ms) */
+.animate-fade-in {
+	animation: fade-in 150ms ease-out;
+}
+
+.animate-slide-up {
+	animation: slide-up 180ms ease-out;
+}
+
+.animate-scale-in {
+	animation: scale-in 150ms ease-out;
+}
+
+.animate-spin {
+	animation: spin 1s linear infinite;
+}
+
+.animate-success {
+	animation: success-bounce 300ms ease-in-out;
+}

@@ -18,7 +18,7 @@
 		{#each node.answers as answer}
 			<button
 				onclick={() => onAnswer(answer)}
-				class="min-h-[80px] w-full rounded-lg border-2 border-border bg-card p-4 text-left transition-all hover:border-primary hover:bg-accent active:scale-95"
+				class="min-h-[80px] w-full rounded-lg border-2 border-border bg-card p-4 text-left transition-all hover:border-primary hover:bg-accent active:scale-[0.97]"
 				aria-label={answer.label}
 			>
 				<div class="space-y-1">

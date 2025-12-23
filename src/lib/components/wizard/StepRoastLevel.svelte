@@ -44,11 +44,11 @@
 		{#each roasts as roast}
 			<button
 				onclick={() => selectRoast(roast.value)}
-				class="min-h-[100px] w-full rounded-lg border-2 border-border bg-card p-6 text-left transition-all hover:border-primary hover:bg-accent active:scale-95"
+				class="min-h-[100px] w-full rounded-lg border-2 border-border bg-card p-6 text-left transition-all hover:border-primary hover:bg-accent active:scale-[0.97]"
 				aria-label="Select {roast.label}"
 			>
 				<div class="flex items-center gap-4">
-					<Circle class="h-12 w-12 fill-current {roast.color}" />
+					<Circle class="h-12 w-12 fill-current transition-transform active:scale-90 {roast.color}" />
 					<div class="flex-1">
 						<h2 class="text-xl font-semibold">{roast.label}</h2>
 						<p class="text-sm text-muted-foreground">{roast.description}</p>
