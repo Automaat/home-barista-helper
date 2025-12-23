@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { get } from 'svelte/store';
@@ -94,5 +94,4 @@ describe('StepGrinder', () => {
 
 		expect(container?.querySelector('svg')).toBeInTheDocument();
 	});
-
 });

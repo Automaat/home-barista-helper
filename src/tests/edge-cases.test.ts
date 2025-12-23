@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { get } from 'svelte/store';
@@ -56,15 +56,11 @@ describe('Edge Cases', () => {
 				wizardStore.reset();
 				wizardStore.setBrewMethod(method);
 				wizardStore.setRoastLevel('medium');
-				const grinder = grinders.find((g) =>
-					method === 'espresso' ? g.type === 'espresso' : g.type !== 'espresso'
-				);
-				if (grinder) {
-					wizardStore.setGrinder(grinder);
-					const { unmount } = render(ResultsDisplay);
-					expect(screen.getByText('Your Brew Recipe')).toBeInTheDocument();
-					unmount();
-				}
+				const grinder = grinders[0];
+				wizardStore.setGrinder(grinder);
+				const { unmount } = render(ResultsDisplay);
+				expect(screen.getByText('Your Brew Recipe')).toBeInTheDocument();
+				unmount();
 			});
 		});
 
@@ -75,13 +71,11 @@ describe('Edge Cases', () => {
 				wizardStore.reset();
 				wizardStore.setBrewMethod('v60');
 				wizardStore.setRoastLevel(roast);
-				const grinder = grinders.find((g) => g.type !== 'espresso');
-				if (grinder) {
-					wizardStore.setGrinder(grinder);
-					const { unmount } = render(ResultsDisplay);
-					expect(screen.getByText(/medium|light|dark/i)).toBeInTheDocument();
-					unmount();
-				}
+				const grinder = grinders[0];
+				wizardStore.setGrinder(grinder);
+				const { unmount } = render(ResultsDisplay);
+				expect(screen.getByText(/medium|light|dark/i)).toBeInTheDocument();
+				unmount();
 			});
 		});
 
@@ -144,8 +138,6 @@ describe('Edge Cases', () => {
 			render(StepGrinder);
 
 			const buttons = screen.getAllByRole('button', { name: /Select/ });
-			const espressoGrinders = grinders.filter((g) => g.type === 'espresso');
-			const filterGrinders = grinders.filter((g) => g.type !== 'espresso');
 
 			expect(buttons.length).toBe(grinders.length);
 		});
@@ -182,17 +174,20 @@ describe('Edge Cases', () => {
 		it('navigates through multiple question levels', async () => {
 			render(TroubleshootingTree, { props: { open: true } });
 
-			const firstAnswerButtons = screen.getAllByRole('button').filter((btn) =>
-				!btn.getAttribute('aria-label')?.includes('Close')
-			);
+			const firstAnswerButtons = screen
+				.getAllByRole('button')
+				.filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
 
 			if (firstAnswerButtons.length > 0) {
 				await user.click(firstAnswerButtons[0]);
 
-				const secondAnswerButtons = screen.queryAllByRole('button').filter((btn) =>
-					!btn.getAttribute('aria-label')?.includes('Close') &&
-					!btn.textContent?.includes('Start Over')
-				);
+				const secondAnswerButtons = screen
+					.queryAllByRole('button')
+					.filter(
+						(btn) =>
+							!btn.getAttribute('aria-label')?.includes('Close') &&
+							!btn.textContent?.includes('Start Over')
+					);
 
 				expect(secondAnswerButtons.length >= 0).toBe(true);
 			}
@@ -225,8 +220,6 @@ describe('Edge Cases', () => {
 		});
 
 		it('handles invalid step navigation', () => {
-			const initialState = get(wizardStore);
-
 			wizardStore.prevStep();
 			let state = get(wizardStore);
 			expect(state.currentStep).toBe(0);

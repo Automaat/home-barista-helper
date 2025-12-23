@@ -16,11 +16,14 @@ async function navigateToSolution(user: ReturnType<typeof userEvent.setup>): Pro
 			return true;
 		}
 
-		const buttons = screen.getAllByRole('button').filter((btn) =>
-			!btn.getAttribute('aria-label')?.includes('Close') &&
-			!btn.textContent?.includes('Start Over') &&
-			!btn.textContent?.includes('Try Another Issue')
-		);
+		const buttons = screen
+			.getAllByRole('button')
+			.filter(
+				(btn) =>
+					!btn.getAttribute('aria-label')?.includes('Close') &&
+					!btn.textContent?.includes('Start Over') &&
+					!btn.textContent?.includes('Try Another Issue')
+			);
 
 		if (buttons.length === 0) {
 			return false;
@@ -104,7 +107,9 @@ describe('TroubleshootingTree', () => {
 			props: { open: true }
 		});
 
-		const answerButtons = screen.getAllByRole('button').filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
+		const answerButtons = screen
+			.getAllByRole('button')
+			.filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
 		if (answerButtons.length > 0) {
 			await user.click(answerButtons[0]);
 		}
@@ -115,12 +120,20 @@ describe('TroubleshootingTree', () => {
 			props: { open: true }
 		});
 
-		const answerButtons = screen.getAllByRole('button').filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
+		const answerButtons = screen
+			.getAllByRole('button')
+			.filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
 
 		if (answerButtons.length > 0) {
 			await user.click(answerButtons[0]);
 
-			const nextButtons = screen.getAllByRole('button').filter((btn) => !btn.getAttribute('aria-label')?.includes('Close') && !btn.textContent?.includes('Start Over'));
+			const nextButtons = screen
+				.getAllByRole('button')
+				.filter(
+					(btn) =>
+						!btn.getAttribute('aria-label')?.includes('Close') &&
+						!btn.textContent?.includes('Start Over')
+				);
 			if (nextButtons.length > 0) {
 				await user.click(nextButtons[0]);
 			}
@@ -132,7 +145,9 @@ describe('TroubleshootingTree', () => {
 			props: { open: true }
 		});
 
-		const answerButtons = screen.getAllByRole('button').filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
+		const answerButtons = screen
+			.getAllByRole('button')
+			.filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
 		expect(answerButtons.length).toBeGreaterThan(0);
 		await user.click(answerButtons[0]);
 
@@ -145,7 +160,9 @@ describe('TroubleshootingTree', () => {
 			props: { open: true }
 		});
 
-		const answerButtons = screen.getAllByRole('button').filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
+		const answerButtons = screen
+			.getAllByRole('button')
+			.filter((btn) => !btn.getAttribute('aria-label')?.includes('Close'));
 		expect(answerButtons.length).toBeGreaterThan(0);
 		await user.click(answerButtons[0]);
 

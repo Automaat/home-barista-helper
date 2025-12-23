@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { get } from 'svelte/store';
-import WizardContainer from './WizardContainer.svelte';
+import WizardContainerTestWrapper from './WizardContainerTestWrapper.svelte';
 import { wizardStore } from '$lib/stores/wizard';
 
 describe('WizardContainer', () => {
@@ -13,11 +13,7 @@ describe('WizardContainer', () => {
 	});
 
 	it('renders progress bar', () => {
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		const progressBar = screen.getByRole('progressbar');
 		expect(progressBar).toBeInTheDocument();
@@ -25,11 +21,7 @@ describe('WizardContainer', () => {
 
 	it('shows correct progress at step 0', () => {
 		wizardStore.reset();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		const progressBar = screen.getByRole('progressbar');
 		expect(progressBar).toHaveAttribute('aria-valuenow', '0');
@@ -38,11 +30,7 @@ describe('WizardContainer', () => {
 
 	it('shows correct progress at step 1', () => {
 		wizardStore.nextStep();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		const progressBar = screen.getByRole('progressbar');
 		expect(progressBar).toHaveAttribute('aria-valuenow', '1');
@@ -50,22 +38,14 @@ describe('WizardContainer', () => {
 
 	it('does not show back button on first step', () => {
 		wizardStore.reset();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		expect(screen.queryByRole('button', { name: 'Go back' })).not.toBeInTheDocument();
 	});
 
 	it('shows back button after first step', () => {
 		wizardStore.nextStep();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		expect(screen.getByRole('button', { name: 'Go back' })).toBeInTheDocument();
 	});
@@ -73,11 +53,7 @@ describe('WizardContainer', () => {
 	it('back button navigates to previous step', async () => {
 		wizardStore.nextStep();
 		wizardStore.nextStep();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		const backButton = screen.getByRole('button', { name: 'Go back' });
 		await user.click(backButton);
@@ -88,11 +64,7 @@ describe('WizardContainer', () => {
 
 	it('displays step counter for steps 0-2', () => {
 		wizardStore.reset();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		expect(screen.getByText('Step 1 of 3')).toBeInTheDocument();
 	});
@@ -101,22 +73,14 @@ describe('WizardContainer', () => {
 		wizardStore.nextStep();
 		wizardStore.nextStep();
 		wizardStore.nextStep();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		expect(screen.getByText('Results')).toBeInTheDocument();
 	});
 
 	it('back button has minimum touch target size', () => {
 		wizardStore.nextStep();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		const backButton = screen.getByRole('button', { name: 'Go back' });
 		expect(backButton).toHaveClass('min-h-[44px]');
@@ -125,11 +89,7 @@ describe('WizardContainer', () => {
 
 	it('progress bar has correct aria attributes', () => {
 		wizardStore.reset();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		const progressBar = screen.getByRole('progressbar');
 		expect(progressBar).toHaveAttribute('aria-valuemin', '0');
@@ -138,11 +98,7 @@ describe('WizardContainer', () => {
 
 	it('displays back button icon', () => {
 		wizardStore.nextStep();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		const backButton = screen.getByRole('button', { name: 'Go back' });
 		expect(backButton.querySelector('svg')).toBeInTheDocument();
@@ -151,32 +107,20 @@ describe('WizardContainer', () => {
 	it('shows correct step text at step 2', () => {
 		wizardStore.nextStep();
 		wizardStore.nextStep();
-		render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		render(WizardContainerTestWrapper);
 
 		expect(screen.getByText('Step 3 of 3')).toBeInTheDocument();
 	});
 
 	it('progress bar width increases with steps', () => {
 		wizardStore.reset();
-		const { rerender } = render(WizardContainer, {
-			props: {
-				children: () => {}
-			}
-		});
+		const { rerender } = render(WizardContainerTestWrapper);
 
 		let progressBar = screen.getByRole('progressbar');
 		expect(progressBar).toHaveStyle({ width: '0%' });
 
 		wizardStore.nextStep();
-		rerender({
-			props: {
-				children: () => {}
-			}
-		});
+		rerender({});
 
 		progressBar = screen.getByRole('progressbar');
 		expect(progressBar).toHaveAttribute('aria-valuenow', '1');

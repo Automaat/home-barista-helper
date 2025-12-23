@@ -44,7 +44,9 @@ describe('Guide Page', () => {
 		wizardStore.nextStep();
 		render(GuidePage);
 
-		expect(screen.getByRole('heading', { name: /Your Brew Recipe|No recipe/i })).toBeInTheDocument();
+		expect(
+			screen.getByRole('heading', { name: /Your Brew Recipe|No recipe/i })
+		).toBeInTheDocument();
 	});
 
 	it('displays troubleshooting button at results step', () => {

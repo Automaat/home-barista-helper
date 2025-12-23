@@ -1,6 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
-import userEvent from '@testing-library/user-event';
 import ResultsDisplay from './ResultsDisplay.svelte';
 import { wizardStore } from '$lib/stores/wizard';
 import { grinders } from '$lib/data/grinders';
@@ -10,12 +9,9 @@ vi.mock('$app/navigation', () => ({
 }));
 
 describe('ResultsDisplay', () => {
-	const user = userEvent.setup();
-
 	beforeEach(() => {
 		wizardStore.reset();
 	});
-
 
 	it('displays grinder notes when available', () => {
 		wizardStore.setBrewMethod('espresso');
@@ -89,5 +85,4 @@ describe('ResultsDisplay', () => {
 		expect(screen.getByText('Your Brew Recipe')).toBeInTheDocument();
 		expect(screen.getByText(/aeropress/i)).toBeInTheDocument();
 	});
-
 });
