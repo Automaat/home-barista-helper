@@ -85,4 +85,34 @@ describe('ResultsDisplay', () => {
 		expect(screen.getByText('Your Brew Recipe')).toBeInTheDocument();
 		expect(screen.getByText(/aeropress/i)).toBeInTheDocument();
 	});
+
+	it('resets wizard store when Start Over is clicked', async () => {
+		const { goto } = await import('$app/navigation');
+
+		wizardStore.setBrewMethod('espresso');
+		wizardStore.setRoastLevel('medium');
+		wizardStore.setGrinder(grinders.find((g) => g.id === 'timemore-078s')!);
+
+		render(ResultsDisplay);
+		const button = screen.getByRole('button', { name: 'Start Over' });
+
+		await button.click();
+
+		// Verify store was reset
+		let state: any;
+		const unsubscribe = wizardStore.subscribe((value) => {
+			state = value;
+		});
+		unsubscribe();
+
+		expect(state).toEqual({
+			brewMethod: null,
+			roastLevel: null,
+			grinder: null,
+			currentStep: 0
+		});
+
+		// Verify navigation happened
+		expect(goto).toHaveBeenCalledWith('/');
+	});
 });

@@ -1,17 +1,27 @@
 <script lang="ts">
 	import { wizardStore } from '$lib/stores/wizard';
 	import { grinders } from '$lib/data/grinders';
+	import { getAvailableGrinderIds } from '$lib/data/recipes';
 	import { Search } from 'lucide-svelte';
 	import type { Grinder } from '$lib/types';
 
 	let searchQuery = $state('');
 
+	const wizardState = $derived($wizardStore);
+	const availableGrinderIds = $derived(
+		wizardState.brewMethod && wizardState.roastLevel
+			? getAvailableGrinderIds(wizardState.brewMethod, wizardState.roastLevel)
+			: []
+	);
+
 	const filteredGrinders = $derived(
-		grinders.filter(
-			(g) =>
+		grinders.filter((g) => {
+			const hasRecipe = availableGrinderIds.includes(g.id);
+			const matchesSearch =
 				g.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				g.brand.toLowerCase().includes(searchQuery.toLowerCase())
-		)
+				g.brand.toLowerCase().includes(searchQuery.toLowerCase());
+			return hasRecipe && matchesSearch;
+		})
 	);
 
 	function selectGrinder(grinder: Grinder) {

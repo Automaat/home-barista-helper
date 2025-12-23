@@ -76,6 +76,63 @@
 
 ---
 
+## ☕ ESPRESSO (Commandante C40)
+
+> 📄 **STATED**: "Comandante is one of the few hand grinders which excel at grinding coffee for espresso" [Source: Coffeedesk]
+
+### 🎚️ Grinder Settings
+
+| Model         | Clicks       | Notes                              |
+| ------------- | ------------ | ---------------------------------- |
+| Standard Axle | 10-15 clicks | Coarser steps, harder to dial in   |
+| Red Clix      | 18-24 clicks | Recommended for espresso precision |
+
+> ⚠️ **Red Clix strongly recommended** - doubles clicks per rotation (24 vs 12), enabling finer adjustments critical for espresso
+
+### 🔥 Espresso: Roast-Specific Parameters
+
+| Parameter        | Light Roast  | Medium Roast | Dark Roast   |
+| ---------------- | ------------ | ------------ | ------------ |
+| Grind (Standard) | 10-12 clicks | 12-14 clicks | 14-16 clicks |
+| Grind (Red Clix) | 18-20 clicks | 20-22 clicks | 22-26 clicks |
+| Temperature      | 94-96°C      | 92-94°C      | 88-92°C      |
+| Ratio            | 1:2.5 - 1:3  | 1:2 - 1:2.5  | 1:1.5 - 1:2  |
+| Shot Time        | 30-40s       | 25-35s       | 22-30s       |
+
+### 📐 Recipe Parameters
+
+| Parameter   | Target                 |
+| ----------- | ---------------------- |
+| Dose        | 18g (adjust to basket) |
+| Ratio       | 1:2 starting point     |
+| Temperature | 93°C default           |
+| Shot Time   | 25-35s                 |
+
+### 🔧 Dialing-In Protocol
+
+```
+1. LOCK DOSE → 18g (or basket capacity)
+2. SET RATIO → 1:2 (18g in → 36g out)
+3. START GRIND → 12 clicks (Standard) / 20 clicks (Red Clix)
+4. PULL SHOT → Target 25-35s
+   - Too fast (<20s) → go FINER (1 click Standard / 2 clicks Red Clix)
+   - Too slow (>40s) → go COARSER (1 click Standard / 2 clicks Red Clix)
+5. TASTE & ADJUST RATIO:
+   - Sour → INCREASE ratio (try 1:2.5)
+   - Bitter → DECREASE ratio (try 1:1.8)
+6. FINE-TUNE → Adjust temp if needed (lighter=hotter, darker=cooler)
+```
+
+### ⚠️ Commandante Espresso Limitations
+
+- **Stepped adjustment** - harder to dial in precisely without Red Clix
+- **~30 microns per click** - each click is a significant change for espresso
+- **Consistency varies** - same coffee on different C40 units may need different settings
+
+> 📄 **STATED**: "The same coffee brewed with the same method but two different grinders can require either 30 or 32 clicks" [Source: Coffeedesk]
+
+---
+
 ## 🫖 HARIO V60 (Commandante C40)
 
 ### 🎚️ Grinder Settings

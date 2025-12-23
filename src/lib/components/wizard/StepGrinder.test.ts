@@ -25,33 +25,59 @@ describe('StepGrinder', () => {
 		expect(searchInput).toHaveAttribute('type', 'text');
 	});
 
-	it('displays all grinders initially', () => {
+	it('shows no grinders when brew method not selected', () => {
 		render(StepGrinder);
-		const buttons = screen.getAllByRole('button', { name: /Select/ });
-		expect(buttons.length).toBeGreaterThan(0);
+		expect(screen.queryByRole('button', { name: /Select/ })).not.toBeInTheDocument();
+	});
+
+	it('displays only compatible grinders for espresso', () => {
+		wizardStore.setBrewMethod('espresso');
+		wizardStore.setRoastLevel('medium');
+
+		render(StepGrinder);
+
+		expect(screen.getByText(/Timemore/i)).toBeInTheDocument();
+		expect(screen.queryByText(/Commandante/i)).not.toBeInTheDocument();
+	});
+
+	it('displays only compatible grinders for V60', () => {
+		wizardStore.setBrewMethod('v60');
+		wizardStore.setRoastLevel('medium');
+
+		render(StepGrinder);
+
+		expect(screen.getAllByText(/Commandante/i).length).toBeGreaterThan(0);
+		expect(screen.queryByText(/Timemore.*078S/i)).not.toBeInTheDocument();
 	});
 
 	it('filters grinders by name', async () => {
+		wizardStore.setBrewMethod('espresso');
+		wizardStore.setRoastLevel('medium');
+
 		render(StepGrinder);
 		const searchInput = screen.getByPlaceholderText('Search grinders...');
 
 		await user.type(searchInput, '078S');
 
 		expect(screen.getByText(/Timemore.*078S/)).toBeInTheDocument();
-		expect(screen.queryByText(/Comandante.*C40/)).not.toBeInTheDocument();
 	});
 
 	it('filters grinders by brand case-insensitive', async () => {
+		wizardStore.setBrewMethod('espresso');
+		wizardStore.setRoastLevel('medium');
+
 		render(StepGrinder);
 		const searchInput = screen.getByPlaceholderText('Search grinders...');
 
 		await user.type(searchInput, 'timemore');
 
 		expect(screen.getByText(/Timemore.*078S/)).toBeInTheDocument();
-		expect(screen.queryByText(/Comandante.*C40/)).not.toBeInTheDocument();
 	});
 
 	it('shows no results message when search has no matches', async () => {
+		wizardStore.setBrewMethod('espresso');
+		wizardStore.setRoastLevel('medium');
+
 		render(StepGrinder);
 		const searchInput = screen.getByPlaceholderText('Search grinders...');
 
@@ -61,6 +87,9 @@ describe('StepGrinder', () => {
 	});
 
 	it('selects grinder and updates store on click', async () => {
+		wizardStore.setBrewMethod('espresso');
+		wizardStore.setRoastLevel('medium');
+
 		render(StepGrinder);
 		const grinderButtons = screen.getAllByRole('button', { name: /Select/ });
 
@@ -72,6 +101,9 @@ describe('StepGrinder', () => {
 	});
 
 	it('displays grinder types', () => {
+		wizardStore.setBrewMethod('v60');
+		wizardStore.setRoastLevel('light');
+
 		render(StepGrinder);
 		const grinderButtons = screen.getAllByRole('button', { name: /Select/ });
 
@@ -79,6 +111,9 @@ describe('StepGrinder', () => {
 	});
 
 	it('has minimum touch target size for mobile', () => {
+		wizardStore.setBrewMethod('v60');
+		wizardStore.setRoastLevel('medium');
+
 		render(StepGrinder);
 		const grinderButtons = screen.getAllByRole('button', { name: /Select/ });
 
