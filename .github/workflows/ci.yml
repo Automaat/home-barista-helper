@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Generate paraglide files
+        run: timeout 10s pnpm dev || true
+
       - name: Run linter
         run: pnpm lint
 
