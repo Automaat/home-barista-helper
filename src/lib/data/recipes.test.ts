@@ -141,8 +141,8 @@ describe('Recipe Database', () => {
 		});
 
 		it('returns empty array for non-existent combination', () => {
-			const grinderIds = getAvailableGrinderIds('espresso' as any, 'light' as any);
-			expect(grinderIds.length).toBeGreaterThan(0);
+			const grinderIds = getAvailableGrinderIds('invalid-method' as any, 'invalid-roast' as any);
+			expect(grinderIds.length).toBe(0);
 		});
 	});
 });
