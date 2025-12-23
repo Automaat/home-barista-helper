@@ -53,8 +53,22 @@ describe('Recipe Database', () => {
 			expect(recipe).toBeUndefined();
 		});
 
-		it('returns undefined for non-existent combination', () => {
+		it('returns espresso recipe for light roast with Commandante Standard', () => {
 			const recipe = getRecipe('espresso', 'light', 'commandante-c40-std');
+			expect(recipe).toBeDefined();
+			expect(recipe?.brewMethod).toBe('espresso');
+			expect(recipe?.roastLevel).toBe('light');
+		});
+
+		it('returns espresso recipe for medium roast with Commandante Red Clix', () => {
+			const recipe = getRecipe('espresso', 'medium', 'commandante-c40-red');
+			expect(recipe).toBeDefined();
+			expect(recipe?.brewMethod).toBe('espresso');
+			expect(recipe?.roastLevel).toBe('medium');
+		});
+
+		it('returns undefined for non-existent combination', () => {
+			const recipe = getRecipe('v60', 'light', 'timemore-078s');
 			expect(recipe).toBeUndefined();
 		});
 	});
@@ -92,6 +106,34 @@ describe('Recipe Database', () => {
 			const recipe = getRecipe('espresso', 'dark', 'timemore-078s');
 			expect(recipe?.temperature).toContain('90-92°C');
 		});
+
+		it('light roast has correct Commandante Standard range', () => {
+			const recipe = getRecipe('espresso', 'light', 'commandante-c40-std');
+			expect(recipe?.grindSetting[0].value).toBe('10-12');
+			expect(recipe?.grindSetting[0].unit).toBe('clicks');
+		});
+
+		it('medium roast has correct Commandante Red Clix range', () => {
+			const recipe = getRecipe('espresso', 'medium', 'commandante-c40-red');
+			expect(recipe?.grindSetting[0].value).toBe('20-22');
+			expect(recipe?.grindSetting[0].unit).toBe('clicks');
+		});
+
+		it('dark roast Commandante has lower temperature and ratio', () => {
+			const recipe = getRecipe('espresso', 'dark', 'commandante-c40-std');
+			expect(recipe?.temperature).toContain('88-92°C');
+			expect(recipe?.ratio).toContain('1:1.5');
+		});
+
+		it('Commandante light roast finer than dark', () => {
+			const lightRecipe = getRecipe('espresso', 'light', 'commandante-c40-std');
+			const darkRecipe = getRecipe('espresso', 'dark', 'commandante-c40-std');
+
+			const lightGrind = parseInt(lightRecipe?.grindSetting[0].value || '0');
+			const darkGrind = parseInt(darkRecipe?.grindSetting[0].value || '0');
+
+			expect(lightGrind).toBeLessThan(darkGrind);
+		});
 	});
 
 	describe('V60 recipes accuracy', () => {
@@ -112,11 +154,11 @@ describe('Recipe Database', () => {
 	});
 
 	describe('getAvailableGrinderIds', () => {
-		it('returns only Timemore 078S for espresso', () => {
+		it('returns Timemore and Commandante for espresso', () => {
 			const grinderIds = getAvailableGrinderIds('espresso', 'medium');
 			expect(grinderIds).toContain('timemore-078s');
-			expect(grinderIds).not.toContain('commandante-c40-std');
-			expect(grinderIds).not.toContain('commandante-c40-red');
+			expect(grinderIds).toContain('commandante-c40-std');
+			expect(grinderIds).toContain('commandante-c40-red');
 		});
 
 		it('returns Commandante grinders for V60', () => {

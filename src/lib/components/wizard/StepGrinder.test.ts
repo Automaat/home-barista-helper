@@ -37,7 +37,7 @@ describe('StepGrinder', () => {
 		render(StepGrinder);
 
 		expect(screen.getByText(/Timemore/i)).toBeInTheDocument();
-		expect(screen.queryByText(/Commandante/i)).not.toBeInTheDocument();
+		expect(screen.getAllByText(/Commandante/i).length).toBeGreaterThan(0);
 	});
 
 	it('displays only compatible grinders for V60', () => {

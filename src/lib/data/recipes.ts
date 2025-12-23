@@ -48,6 +48,100 @@ export const recipes: BrewRecipe[] = [
 		]
 	},
 
+	// ESPRESSO - Commandante C40 Standard Axle
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'light',
+		grindSetting: [{ grinderId: 'commandante-c40-std', value: '10-12', unit: 'clicks' }],
+		ratio: '1:2.5-1:3',
+		temperature: '94-96°C',
+		time: '30-40s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:2.5 (18g → 45g)',
+			'Grind 10-12 clicks',
+			'Target 30-40s extraction',
+			'Taste: if sour, increase ratio to 1:3'
+		]
+	},
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'medium',
+		grindSetting: [{ grinderId: 'commandante-c40-std', value: '12-14', unit: 'clicks' }],
+		ratio: '1:2-1:2.5',
+		temperature: '92-94°C',
+		time: '25-35s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:2 (18g → 36g)',
+			'Grind 12-14 clicks',
+			'Target 25-35s extraction',
+			'Adjust ratio if sour (increase) or bitter (decrease)'
+		]
+	},
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'dark',
+		grindSetting: [{ grinderId: 'commandante-c40-std', value: '14-16', unit: 'clicks' }],
+		ratio: '1:1.5-1:2',
+		temperature: '88-92°C',
+		time: '22-30s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:1.5 (18g → 27g)',
+			'Grind 14-16 clicks',
+			'Target 22-30s extraction',
+			'Lower temp prevents over-extraction'
+		]
+	},
+
+	// ESPRESSO - Commandante C40 Red Clix
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'light',
+		grindSetting: [{ grinderId: 'commandante-c40-red', value: '18-20', unit: 'clicks' }],
+		ratio: '1:2.5-1:3',
+		temperature: '94-96°C',
+		time: '30-40s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:2.5 (18g → 45g)',
+			'Grind 18-20 clicks (Red Clix)',
+			'Target 30-40s extraction',
+			'Taste: if sour, increase ratio to 1:3'
+		]
+	},
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'medium',
+		grindSetting: [{ grinderId: 'commandante-c40-red', value: '20-22', unit: 'clicks' }],
+		ratio: '1:2-1:2.5',
+		temperature: '92-94°C',
+		time: '25-35s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:2 (18g → 36g)',
+			'Grind 20-22 clicks (Red Clix)',
+			'Target 25-35s extraction',
+			'Adjust ratio if sour (increase) or bitter (decrease)'
+		]
+	},
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'dark',
+		grindSetting: [{ grinderId: 'commandante-c40-red', value: '22-26', unit: 'clicks' }],
+		ratio: '1:1.5-1:2',
+		temperature: '88-92°C',
+		time: '22-30s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:1.5 (18g → 27g)',
+			'Grind 22-26 clicks (Red Clix)',
+			'Target 22-30s extraction',
+			'Lower temp prevents over-extraction'
+		]
+	},
+
 	// V60 - Commandante C40 Standard Axle
 	{
 		brewMethod: 'v60',
@@ -144,13 +238,13 @@ export const recipes: BrewRecipe[] = [
 	{
 		brewMethod: 'chemex',
 		roastLevel: 'light',
-		grindSetting: [{ grinderId: 'commandante-c40-std', value: '38-42', unit: 'clicks' }],
+		grindSetting: [{ grinderId: 'commandante-c40-std', value: '25-28', unit: 'clicks' }],
 		ratio: '1:16-1:17',
 		temperature: '96°C',
 		time: '4:00-4:45',
 		steps: [
 			'Set ratio 1:16 (30g → 480g)',
-			'Grind 38-42 clicks',
+			'Grind 25-28 clicks',
 			'Bloom: 90-120g water, wait 30-45s',
 			'Pulse pours of 100-120g',
 			'Total time 4:00-4:45'
@@ -159,13 +253,13 @@ export const recipes: BrewRecipe[] = [
 	{
 		brewMethod: 'chemex',
 		roastLevel: 'light',
-		grindSetting: [{ grinderId: 'commandante-c40-red', value: '52-58', unit: 'clicks' }],
+		grindSetting: [{ grinderId: 'commandante-c40-red', value: '50-56', unit: 'clicks' }],
 		ratio: '1:16-1:17',
 		temperature: '96°C',
 		time: '4:00-4:45',
 		steps: [
 			'Set ratio 1:16 (30g → 480g)',
-			'Grind 52-58 clicks (Red Clix)',
+			'Grind 50-56 clicks (Red Clix)',
 			'Bloom: 90-120g water, wait 30-45s',
 			'Pulse pours of 100-120g',
 			'Total time 4:00-4:45'
@@ -174,13 +268,13 @@ export const recipes: BrewRecipe[] = [
 	{
 		brewMethod: 'chemex',
 		roastLevel: 'medium',
-		grindSetting: [{ grinderId: 'commandante-c40-std', value: '42-45', unit: 'clicks' }],
+		grindSetting: [{ grinderId: 'commandante-c40-std', value: '28-31', unit: 'clicks' }],
 		ratio: '1:15-1:16',
 		temperature: '93°C',
 		time: '3:30-4:15',
 		steps: [
 			'Set ratio 1:16 (30g → 480g)',
-			'Grind 42-45 clicks',
+			'Grind 28-31 clicks',
 			'Bloom: 90-120g water, wait 30-45s',
 			'Pulse pours of 100-120g',
 			'Total time 3:30-4:15'
@@ -189,13 +283,13 @@ export const recipes: BrewRecipe[] = [
 	{
 		brewMethod: 'chemex',
 		roastLevel: 'medium',
-		grindSetting: [{ grinderId: 'commandante-c40-red', value: '58-65', unit: 'clicks' }],
+		grindSetting: [{ grinderId: 'commandante-c40-red', value: '56-62', unit: 'clicks' }],
 		ratio: '1:15-1:16',
 		temperature: '93°C',
 		time: '3:30-4:15',
 		steps: [
 			'Set ratio 1:16 (30g → 480g)',
-			'Grind 58-65 clicks (Red Clix)',
+			'Grind 56-62 clicks (Red Clix)',
 			'Bloom: 90-120g water, wait 30-45s',
 			'Pulse pours of 100-120g',
 			'Total time 3:30-4:15'
@@ -204,13 +298,13 @@ export const recipes: BrewRecipe[] = [
 	{
 		brewMethod: 'chemex',
 		roastLevel: 'dark',
-		grindSetting: [{ grinderId: 'commandante-c40-std', value: '45-48', unit: 'clicks' }],
+		grindSetting: [{ grinderId: 'commandante-c40-std', value: '31-34', unit: 'clicks' }],
 		ratio: '1:14-1:15',
 		temperature: '90°C',
 		time: '3:15-4:00',
 		steps: [
 			'Set ratio 1:15 (30g → 450g)',
-			'Grind 45-48 clicks',
+			'Grind 31-34 clicks',
 			'Bloom: 90g water, wait 30s',
 			'Pulse pours of 100g',
 			'Total time 3:15-4:00'
@@ -219,13 +313,13 @@ export const recipes: BrewRecipe[] = [
 	{
 		brewMethod: 'chemex',
 		roastLevel: 'dark',
-		grindSetting: [{ grinderId: 'commandante-c40-red', value: '65-72', unit: 'clicks' }],
+		grindSetting: [{ grinderId: 'commandante-c40-red', value: '62-68', unit: 'clicks' }],
 		ratio: '1:14-1:15',
 		temperature: '90°C',
 		time: '3:15-4:00',
 		steps: [
 			'Set ratio 1:15 (30g → 450g)',
-			'Grind 65-72 clicks (Red Clix)',
+			'Grind 62-68 clicks (Red Clix)',
 			'Bloom: 90g water, wait 30s',
 			'Pulse pours of 100g',
 			'Total time 3:15-4:00'
