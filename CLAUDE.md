@@ -25,6 +25,7 @@ Mobile-first interactive coffee dialing guide. Wizard-based app for espresso, V6
 ```
 
 **Key Files:**
+
 - `bulletproof-dialing-framework.md` - Complete coffee brewing reference (grinders, methods, troubleshooting)
 - `.mise.toml` - Dev tools (Node 22, pnpm)
 
@@ -64,10 +65,12 @@ Plan Mode for: wizard flows, new features, multi-component changes
 ### Linter Errors
 
 **ALWAYS:**
+
 - Fix properly, research if unclear
 - Fix root cause, not symptoms
 
 **NEVER:**
+
 - Use `// eslint-disable`, `// @ts-ignore`
 - Ignore warnings
 - Work around linter
@@ -75,28 +78,25 @@ Plan Mode for: wizard flows, new features, multi-component changes
 ### Svelte 5 Runes (REQUIRED)
 
 ```svelte
-let count = $state(0);                  // Reactive state
-let doubled = $derived(count * 2);      // Derived
-$effect(() => console.log(count));      // Effects
-
-// Props
-let { grindSize, method }: Props = $props();
+let count = $state(0); // Reactive state let doubled = $derived(count * 2); // Derived $effect(() =>
+console.log(count)); // Effects // Props let {(grindSize, method)}: Props = $props();
 ```
 
 **NEVER Svelte 4:**
+
 ```svelte
-❌ let count = 0;           // Old reactivity
-❌ $: doubled = count * 2;  // Old derived
-❌ export let prop;         // Old props
+❌ let count = 0; // Old reactivity ❌ $: doubled = count * 2; // Old derived ❌ export let prop; //
+Old props
 ```
 
 ### Error Handling
 
 Return errors, don't throw:
+
 ```typescript
 function parse(input: string): number | Error {
-  const value = parseFloat(input);
-  return isNaN(value) ? new Error('Invalid') : value;
+	const value = parseFloat(input);
+	return isNaN(value) ? new Error('Invalid') : value;
 }
 ```
 
@@ -140,14 +140,14 @@ function parse(input: string): number | Error {
 
 ### Terminology
 
-| Term | Definition |
-|------|------------|
-| **Dial in** | Adjust grind/temp/ratio for desired taste |
-| **Under-extracted** | Sour, weak → finer, hotter, longer |
-| **Over-extracted** | Bitter, harsh → coarser, cooler, shorter |
-| **Channeling** | Uneven extraction (water finds easy path) |
-| **Brew ratio** | Coffee:water (1:2 = 18g→36g) |
-| **Roast level** | Light (dense) / Medium / Dark (porous) |
+| Term                | Definition                                |
+| ------------------- | ----------------------------------------- |
+| **Dial in**         | Adjust grind/temp/ratio for desired taste |
+| **Under-extracted** | Sour, weak → finer, hotter, longer        |
+| **Over-extracted**  | Bitter, harsh → coarser, cooler, shorter  |
+| **Channeling**      | Uneven extraction (water finds easy path) |
+| **Brew ratio**      | Coffee:water (1:2 = 18g→36g)              |
+| **Roast level**     | Light (dense) / Medium / Dark (porous)    |
 
 ### Grinders
 
@@ -158,12 +158,12 @@ function parse(input: string): number | Error {
 
 ### Brew Methods
 
-| Method | Ratio | Time | Temp | Notes |
-|--------|-------|------|------|-------|
-| **Espresso** | 1:1.5-1:2.5 | 25-35s | 90-96°C | Lighter = longer/hotter |
-| **V60** | 1:15-1:16 | 2:45-3:15 | 90-96°C | Inc. 30-45s bloom |
-| **Chemex** | 1:15-1:17 | 3:30-4:30 | 90-96°C | Coarser than V60 |
-| **Aeropress** | 1:6-1:16 | 1-4min | 80-96°C | Style-dependent |
+| Method        | Ratio       | Time      | Temp    | Notes                   |
+| ------------- | ----------- | --------- | ------- | ----------------------- |
+| **Espresso**  | 1:1.5-1:2.5 | 25-35s    | 90-96°C | Lighter = longer/hotter |
+| **V60**       | 1:15-1:16   | 2:45-3:15 | 90-96°C | Inc. 30-45s bloom       |
+| **Chemex**    | 1:15-1:17   | 3:30-4:30 | 90-96°C | Coarser than V60        |
+| **Aeropress** | 1:6-1:16    | 1-4min    | 80-96°C | Style-dependent         |
 
 ### Roast Impact
 
@@ -176,13 +176,13 @@ Dark: COARSER grind, LOWER temp (88-92°C), SHORTER time, 1:14-1:15
 
 ### Troubleshooting
 
-| Taste | Solution |
-|-------|----------|
-| **Sour** | Finer, hotter, longer, more water |
-| **Bitter** | Coarser, cooler, shorter, less water |
-| **Sour+Bitter** | Fix puck prep / pour technique |
-| **Weak** | Finer, more coffee, hotter |
-| **Harsh** | Coarser, cooler |
+| Taste           | Solution                             |
+| --------------- | ------------------------------------ |
+| **Sour**        | Finer, hotter, longer, more water    |
+| **Bitter**      | Coarser, cooler, shorter, less water |
+| **Sour+Bitter** | Fix puck prep / pour technique       |
+| **Weak**        | Finer, more coffee, hotter           |
+| **Harsh**       | Coarser, cooler                      |
 
 ### Domain Rules
 
@@ -211,6 +211,7 @@ Dark: COARSER grind, LOWER temp (88-92°C), SHORTER time, 1:14-1:15
 ✅ One variable at a time
 
 **Checks:**
+
 1. Component state instead of store?
 2. Svelte 5 pattern?
 3. Works mobile viewport?
@@ -240,7 +241,7 @@ Dark: COARSER grind, LOWER temp (88-92°C), SHORTER time, 1:14-1:15
 
 ### NEVER
 
-- >100 lines per change
+- > 100 lines per change
 - Big changes single step
 - Modify unrelated code
 - Assume (ASK)
@@ -313,30 +314,32 @@ git commit -s -S -m "feat: add ratio calculator"
 **TDD required for:** Brew calculations, domain logic, wizard flow
 
 **Structure:**
+
 ```typescript
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 
 describe('BrewCalculator', () => {
-  it('calculates 1:2 ratio', () => {
-    expect(calculateRatio(18, 36)).toBe('1:2');
-  });
+	it('calculates 1:2 ratio', () => {
+		expect(calculateRatio(18, 36)).toBe('1:2');
+	});
 });
 
 describe('GrinderSelector', () => {
-  it('displays grinders', () => {
-    render(GrinderSelector);
-    expect(screen.getByText('Timemore 078S')).toBeInTheDocument();
-  });
+	it('displays grinders', () => {
+		render(GrinderSelector);
+		expect(screen.getByText('Timemore 078S')).toBeInTheDocument();
+	});
 });
 ```
 
 **Mobile testing:**
+
 ```typescript
 it('touch target ≥44px', () => {
-  render(Button);
-  const el = screen.getByRole('button');
-  expect(parseInt(getComputedStyle(el).height)).toBeGreaterThanOrEqual(44);
+	render(Button);
+	const el = screen.getByRole('button');
+	expect(parseInt(getComputedStyle(el).height)).toBeGreaterThanOrEqual(44);
 });
 ```
 
@@ -348,9 +351,9 @@ it('touch target ≥44px', () => {
 
 ```svelte
 <script lang="ts">
-  let step = $state(0);
-  let canNext = $derived(step < 3);
-  let canBack = $derived(step > 0);
+	let step = $state(0);
+	let canNext = $derived(step < 3);
+	let canBack = $derived(step > 0);
 </script>
 
 {#if step === 0}<GrinderSelection />
@@ -372,8 +375,8 @@ it('touch target ≥44px', () => {
 ```typescript
 // lib/grinders.ts - reference framework doc
 export const grinders = {
-  'timemore-078s': { name: 'Timemore 078S', type: 'espresso', /* ... */ },
-  'commandante-c40': { name: 'Commandante C40', type: 'filter', /* ... */ },
+	'timemore-078s': { name: 'Timemore 078S', type: 'espresso' /* ... */ },
+	'commandante-c40': { name: 'Commandante C40', type: 'filter' /* ... */ }
 };
 ```
 
@@ -387,6 +390,7 @@ export const grinders = {
 **i18n:** Paraglide English/Polish, see paraglide-sveltekit docs
 
 **Coffee:**
+
 - Timemore 078S: calibration varies (1-2 holes too coarse)
 - Roast affects ALL variables (can't change grind only)
 - One variable at a time (scientific method)

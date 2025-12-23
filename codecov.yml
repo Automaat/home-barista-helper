@@ -10,15 +10,15 @@ coverage:
         threshold: 1%
 
 comment:
-  layout: "header, diff, flags, components"
+  layout: 'header, diff, flags, components'
   behavior: default
   require_changes: false
   require_base: false
   require_head: true
 
 ignore:
-  - "src/**/*.test.ts"
-  - "src/**/*.spec.ts"
-  - "src/routes/**/+*.ts"
-  - "src/routes/**/+*.js"
-  - "src/app.html"
+  - 'src/**/*.test.ts'
+  - 'src/**/*.spec.ts'
+  - 'src/routes/**/+*.ts'
+  - 'src/routes/**/+*.js'
+  - 'src/app.html'
