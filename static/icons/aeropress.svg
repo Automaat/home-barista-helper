@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Plunger top -->
+  <rect x="35" y="10" width="30" height="6" rx="2" fill="currentColor" opacity="0.3" />
+  <!-- Plunger shaft -->
+  <rect x="47" y="16" width="6" height="25" fill="none" />
+  <!-- Chamber top -->
+  <ellipse cx="50" cy="41" rx="18" ry="3" fill="none" />
+  <!-- Chamber body -->
+  <rect x="32" y="41" width="36" height="35" rx="1" fill="none" />
+  <!-- Numbers on chamber -->
+  <line x1="35" y1="50" x2="40" y2="50" opacity="0.5" stroke-width="1" />
+  <line x1="35" y1="56" x2="40" y2="56" opacity="0.5" stroke-width="1" />
+  <line x1="35" y1="62" x2="40" y2="62" opacity="0.5" stroke-width="1" />
+  <line x1="35" y1="68" x2="40" y2="68" opacity="0.5" stroke-width="1" />
+  <!-- Chamber bottom -->
+  <ellipse cx="50" cy="76" rx="18" ry="3" fill="none" />
+  <!-- Filter cap -->
+  <path d="M 32 76 L 28 82 L 72 82 L 68 76" fill="currentColor" opacity="0.2" />
+  <circle cx="50" cy="82" r="22" fill="none" />
+  <!-- Filter holes -->
+  <circle cx="45" cy="82" r="1" fill="currentColor" opacity="0.4" />
+  <circle cx="50" cy="82" r="1" fill="currentColor" opacity="0.4" />
+  <circle cx="55" cy="82" r="1" fill="currentColor" opacity="0.4" />
+</svg>
