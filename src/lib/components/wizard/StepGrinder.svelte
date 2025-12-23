@@ -7,10 +7,10 @@
 
 	let searchQuery = $state('');
 
-	const state = $derived($wizardStore);
+	const wizardState = $derived($wizardStore);
 	const availableGrinderIds = $derived(
-		state.brewMethod && state.roastLevel
-			? getAvailableGrinderIds(state.brewMethod, state.roastLevel)
+		wizardState.brewMethod && wizardState.roastLevel
+			? getAvailableGrinderIds(wizardState.brewMethod, wizardState.roastLevel)
 			: []
 	);
 
