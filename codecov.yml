@@ -1,0 +1,24 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 75%
+        threshold: 1%
+    patch:
+      default:
+        target: 75%
+        threshold: 1%
+
+comment:
+  layout: "header, diff, flags, components"
+  behavior: default
+  require_changes: false
+  require_base: false
+  require_head: true
+
+ignore:
+  - "src/**/*.test.ts"
+  - "src/**/*.spec.ts"
+  - "src/routes/**/+*.ts"
+  - "src/routes/**/+*.js"
+  - "src/app.html"
