@@ -19,7 +19,7 @@
 	}
 </script>
 
-<div class="space-y-6">
+<div class="flex h-full flex-col gap-6">
 	<div class="space-y-2">
 		<h1 class="text-2xl font-bold">Choose Your Grinder</h1>
 		<p class="text-muted-foreground">Select your coffee grinder</p>
@@ -37,7 +37,7 @@
 	</div>
 
 	<!-- Grinder List -->
-	<div class="max-h-[60dvh] space-y-2 overflow-y-auto">
+	<div class="flex-1 space-y-2 overflow-y-auto">
 		{#each filteredGrinders as grinder (grinder.id)}
 			<button
 				onclick={() => selectGrinder(grinder)}
