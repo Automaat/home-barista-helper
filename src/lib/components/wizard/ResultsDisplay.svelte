@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { wizardStore } from '$lib/stores/wizard';
 	import { getRecipe } from '$lib/data/recipes';
+	import { goto } from '$app/navigation';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Card from '$lib/components/ui/card/card.svelte';
 	import { Settings2, Thermometer, Clock, Scale } from 'lucide-svelte';
@@ -113,7 +114,7 @@
 
 	<!-- Fixed Bottom Actions -->
 	<div class="fixed bottom-0 left-0 right-0 border-t bg-background p-4">
-		<Button class="min-h-[48px] w-full text-base" onclick={() => (window.location.href = '/')}>
+		<Button class="min-h-[48px] w-full text-base" onclick={() => goto('/')}>
 			Start Over
 		</Button>
 	</div>

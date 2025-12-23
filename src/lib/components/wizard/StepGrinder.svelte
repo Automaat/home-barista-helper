@@ -37,7 +37,7 @@
 	</div>
 
 	<!-- Grinder List -->
-	<div class="space-y-2 overflow-y-auto" style="max-height: 60dvh;">
+	<div class="max-h-[60dvh] space-y-2 overflow-y-auto">
 		{#each filteredGrinders as grinder (grinder.id)}
 			<button
 				onclick={() => selectGrinder(grinder)}

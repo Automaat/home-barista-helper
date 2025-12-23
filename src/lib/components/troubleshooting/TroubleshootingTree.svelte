@@ -43,12 +43,24 @@
 		onclick={(e) => {
 			if (e.target === e.currentTarget) close();
 		}}
+		onkeydown={(e) => {
+			if (e.key === 'Escape') {
+				e.preventDefault();
+				close();
+			}
+		}}
+		tabindex="-1"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="troubleshoot-title"
 	>
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<!-- Modal content - stopPropagation prevents backdrop click from closing -->
 		<div
 			class="max-h-dvh w-full overflow-y-auto rounded-t-2xl bg-background md:max-h-[85dvh] md:max-w-2xl md:rounded-2xl"
+			onclick={(e) => e.stopPropagation()}
+			onkeydown={(e) => e.stopPropagation()}
+			role="document"
 		>
 			<!-- Header -->
 			<div class="sticky top-0 z-10 flex items-center justify-between border-b bg-background p-4">
@@ -94,7 +106,10 @@
 						<ConditionalQuestion node={currentNode} onAnswer={handleAnswer} />
 					</div>
 				{:else}
-					<p class="text-center text-muted-foreground">Error: Node not found</p>
+					<p class="text-center text-muted-foreground">
+						Something went wrong. Please restart the troubleshooting process.
+					</p>
+					{console.error('Troubleshooting node not found:', currentNodeId)}
 				{/if}
 			</div>
 		</div>

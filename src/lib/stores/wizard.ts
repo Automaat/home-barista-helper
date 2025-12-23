@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 import type { BrewMethod, Grinder, RoastLevel } from '$lib/types';
+import { browser } from '$app/environment';
 
 export interface WizardState {
 	brewMethod: BrewMethod | null;
@@ -15,23 +16,76 @@ const initialState: WizardState = {
 	currentStep: 0
 };
 
+const STORAGE_KEY = 'wizard-state';
+
+function loadState(): WizardState {
+	if (!browser) return initialState;
+	try {
+		const stored = sessionStorage.getItem(STORAGE_KEY);
+		return stored ? JSON.parse(stored) : initialState;
+	} catch {
+		return initialState;
+	}
+}
+
 function createWizardStore() {
-	const { subscribe, set, update } = writable<WizardState>(initialState);
+	const { subscribe, set, update } = writable<WizardState>(loadState());
+
+	function saveState(state: WizardState) {
+		if (browser) {
+			try {
+				sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+			} catch {
+				// Ignore storage errors
+			}
+		}
+	}
 
 	return {
 		subscribe,
 		setBrewMethod: (brewMethod: BrewMethod) =>
-			update((state) => ({ ...state, brewMethod, currentStep: 1 })),
+			update((state) => {
+				const newState = { ...state, brewMethod, currentStep: 1 };
+				saveState(newState);
+				return newState;
+			}),
 		setRoastLevel: (roastLevel: RoastLevel) =>
-			update((state) => ({ ...state, roastLevel, currentStep: 2 })),
-		setGrinder: (grinder: Grinder) => update((state) => ({ ...state, grinder, currentStep: 3 })),
-		nextStep: () => update((state) => ({ ...state, currentStep: state.currentStep + 1 })),
+			update((state) => {
+				const newState = { ...state, roastLevel, currentStep: 2 };
+				saveState(newState);
+				return newState;
+			}),
+		setGrinder: (grinder: Grinder) =>
+			update((state) => {
+				const newState = { ...state, grinder, currentStep: 3 };
+				saveState(newState);
+				return newState;
+			}),
+		nextStep: () =>
+			update((state) => {
+				const newState = { ...state, currentStep: state.currentStep + 1 };
+				saveState(newState);
+				return newState;
+			}),
 		prevStep: () =>
-			update((state) => ({
-				...state,
-				currentStep: Math.max(0, state.currentStep - 1)
-			})),
-		reset: () => set(initialState)
+			update((state) => {
+				const newState = {
+					...state,
+					currentStep: Math.max(0, state.currentStep - 1)
+				};
+				saveState(newState);
+				return newState;
+			}),
+		reset: () => {
+			set(initialState);
+			if (browser) {
+				try {
+					sessionStorage.removeItem(STORAGE_KEY);
+				} catch {
+					// Ignore storage errors
+				}
+			}
+		}
 	};
 }
 

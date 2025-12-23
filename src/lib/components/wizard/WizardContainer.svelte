@@ -42,7 +42,11 @@
 		{/if}
 		<div class="flex-1">
 			<p class="text-sm text-muted-foreground">
-				Step {state.currentStep + 1} of 4
+				{#if state.currentStep < 3}
+					Step {state.currentStep + 1} of 3
+				{:else}
+					Results
+				{/if}
 			</p>
 		</div>
 	</header>
