@@ -39,7 +39,7 @@
 
 {#if open}
 	<div
-		class="fixed inset-0 z-50 flex items-end bg-background/80 backdrop-blur-sm md:items-center md:justify-center"
+		class="animate-fade-in fixed inset-0 z-50 flex items-end bg-background/80 backdrop-blur-sm md:items-center md:justify-center"
 		onclick={(e) => {
 			if (e.target === e.currentTarget) close();
 		}}
@@ -57,7 +57,7 @@
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<!-- Modal content - stopPropagation prevents backdrop click from closing -->
 		<div
-			class="max-h-dvh w-full overflow-y-auto rounded-t-2xl bg-background md:max-h-[85dvh] md:max-w-2xl md:rounded-2xl"
+			class="animate-slide-up max-h-dvh w-full overflow-y-auto rounded-t-2xl bg-background md:max-h-[85dvh] md:max-w-2xl md:rounded-2xl"
 			onclick={(e) => e.stopPropagation()}
 			onkeydown={(e) => e.stopPropagation()}
 			role="document"
@@ -80,9 +80,11 @@
 			<div class="p-6">
 				{#if solution}
 					<!-- Solution Display -->
-					<Card class="border-green-500/50 bg-green-50 p-6 dark:bg-green-950/20">
+					<Card class="animate-scale-in border-green-500/50 bg-green-50 p-6 dark:bg-green-950/20">
 						<div class="flex gap-4">
-							<CheckCircle2 class="h-6 w-6 shrink-0 text-green-600 dark:text-green-400" />
+							<CheckCircle2
+								class="animate-success h-6 w-6 shrink-0 text-green-600 dark:text-green-400"
+							/>
 							<div class="flex-1 space-y-4">
 								<div>
 									<h3 class="font-semibold text-green-900 dark:text-green-100">
@@ -90,7 +92,9 @@
 									</h3>
 									<p class="mt-2 text-green-800 dark:text-green-200">{solution}</p>
 								</div>
-								<Button onclick={reset} class="w-full">Try Another Issue</Button>
+								<Button onclick={reset} class="w-full transition-transform active:scale-[0.98]">
+									Try Another Issue
+								</Button>
 							</div>
 						</div>
 					</Card>

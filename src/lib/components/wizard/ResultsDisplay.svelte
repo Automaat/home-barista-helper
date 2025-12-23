@@ -29,7 +29,7 @@
 	{#if recipe}
 		<!-- Key Parameters -->
 		<div class="grid gap-4 sm:grid-cols-2">
-			<Card class="p-4">
+			<Card class="animate-scale-in p-4">
 				<div class="flex items-center gap-3">
 					<div class="rounded-full bg-primary/10 p-2">
 						<Settings2 class="h-5 w-5 text-primary" />
@@ -44,7 +44,7 @@
 				</div>
 			</Card>
 
-			<Card class="p-4">
+			<Card class="animate-scale-in p-4" style="animation-delay: 50ms">
 				<div class="flex items-center gap-3">
 					<div class="rounded-full bg-primary/10 p-2">
 						<Scale class="h-5 w-5 text-primary" />
@@ -56,7 +56,7 @@
 				</div>
 			</Card>
 
-			<Card class="p-4">
+			<Card class="animate-scale-in p-4" style="animation-delay: 100ms">
 				<div class="flex items-center gap-3">
 					<div class="rounded-full bg-primary/10 p-2">
 						<Thermometer class="h-5 w-5 text-primary" />
@@ -68,7 +68,7 @@
 				</div>
 			</Card>
 
-			<Card class="p-4">
+			<Card class="animate-scale-in p-4" style="animation-delay: 150ms">
 				<div class="flex items-center gap-3">
 					<div class="rounded-full bg-primary/10 p-2">
 						<Clock class="h-5 w-5 text-primary" />
@@ -114,6 +114,11 @@
 
 	<!-- Fixed Bottom Actions -->
 	<div class="fixed bottom-0 left-0 right-0 border-t bg-background p-4">
-		<Button class="min-h-[48px] w-full text-base" onclick={() => goto('/')}>Start Over</Button>
+		<Button
+			class="min-h-[48px] w-full text-base transition-transform active:scale-[0.98]"
+			onclick={() => goto('/')}
+		>
+			Start Over
+		</Button>
 	</div>
 </div>

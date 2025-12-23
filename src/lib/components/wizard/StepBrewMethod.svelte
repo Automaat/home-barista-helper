@@ -26,7 +26,7 @@
 		{#each methods as method}
 			<button
 				onclick={() => selectMethod(method.value)}
-				class="min-h-[120px] w-full rounded-lg border-2 border-border bg-card p-6 text-left transition-all hover:border-primary hover:bg-accent active:scale-95 md:min-h-[140px]"
+				class="min-h-[120px] w-full rounded-lg border-2 border-border bg-card p-6 text-left transition-all hover:border-primary hover:bg-accent active:scale-[0.97] md:min-h-[140px]"
 				aria-label="Select {method.label}"
 			>
 				<div class="flex items-center gap-4">

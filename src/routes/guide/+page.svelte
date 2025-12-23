@@ -14,19 +14,25 @@
 
 <WizardContainer>
 	{#if $wizardStore.currentStep === 0}
-		<StepBrewMethod />
+		<div class="animate-slide-up">
+			<StepBrewMethod />
+		</div>
 	{:else if $wizardStore.currentStep === 1}
-		<StepRoastLevel />
+		<div class="animate-slide-up">
+			<StepRoastLevel />
+		</div>
 	{:else if $wizardStore.currentStep === 2}
-		<StepGrinder />
+		<div class="animate-slide-up">
+			<StepGrinder />
+		</div>
 	{:else if $wizardStore.currentStep === 3}
-		<div class="relative">
+		<div class="relative animate-slide-up">
 			<ResultsDisplay />
 			<div class="fixed bottom-20 right-4 z-10">
 				<Button
 					onclick={() => (showTroubleshooting = true)}
 					size="lg"
-					class="min-h-[56px] min-w-[56px] gap-2 rounded-full shadow-lg"
+					class="min-h-[56px] min-w-[56px] gap-2 rounded-full shadow-lg transition-transform active:scale-[0.97]"
 					aria-label="Open troubleshooting"
 				>
 					<HelpCircle class="h-6 w-6" />
