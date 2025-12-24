@@ -52,37 +52,19 @@ jobs:
           fi
           echo "sha=$(git rev-parse production)" >> $GITHUB_OUTPUT
 
-      - name: Wait for Cloudflare deployment
+      - name: Wait for Cloudflare Pages deployment
+        id: cloudflare
+        uses: WalshyDev/cf-pages-await@66a2d4724571b44a8c6b52049dea8f2c388f7f3f # v1.2.2
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          project: home-barista-helper
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          commitHash: ${{ steps.push.outputs.sha }}
+
+      - name: Deployment complete
         run: |
-          echo "⏳ Production branch ${{ steps.push.outputs.action }}"
-          echo "📦 Commit: ${{ steps.push.outputs.sha }}"
-          echo "🚀 Cloudflare Pages will deploy automatically"
-          echo ""
-          echo "Check status at:"
-          echo "  - Cloudflare Pages dashboard"
-          echo "  - GitHub Actions deployments tab"
-
-      - name: Check Cloudflare deployment status
-        if: env.CLOUDFLARE_API_TOKEN != ''
-        continue-on-error: true
-        run: |
-          echo "Waiting 30s for Cloudflare to start deployment..."
-          sleep 30
-
-          # Get latest deployment for production branch
-          DEPLOYMENTS=$(curl -s -X GET \
-            "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/pages/projects/home-barista-helper/deployments" \
-            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
-            -H "Content-Type: application/json")
-
-          LATEST_URL=$(echo "$DEPLOYMENTS" | jq -r '.result[0].url // empty')
-          LATEST_STATUS=$(echo "$DEPLOYMENTS" | jq -r '.result[0].latest_stage.status // empty')
-
-          if [ -n "$LATEST_URL" ]; then
-            echo "✅ Latest deployment: $LATEST_URL"
-            echo "📊 Status: $LATEST_STATUS"
-          else
-            echo "⚠️ Could not fetch deployment info (check manually)"
-          fi
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          echo "✅ Deployment successful!"
+          echo "🌐 URL: ${{ steps.cloudflare.outputs.url }}"
+          echo "🔗 Alias: ${{ steps.cloudflare.outputs.alias }}"
+          echo "🌍 Environment: ${{ steps.cloudflare.outputs.environment }}"

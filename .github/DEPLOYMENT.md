@@ -7,11 +7,11 @@
 
 ## How It Works
 
-Cloudflare Pages monitors the `production` branch and automatically deploys on push. This workflow just syncs main → production.
+1. Workflow syncs main → production branch
+2. Cloudflare Pages auto-deploys on production push
+3. Workflow waits for deployment and reports status
 
-## Optional GitHub Secrets
-
-For deployment status checking (optional):
+## Required GitHub Secrets
 
 ### CLOUDFLARE_API_TOKEN
 1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/profile/api-tokens)
@@ -25,8 +25,6 @@ For deployment status checking (optional):
 2. Copy Account ID from URL or sidebar
 3. Add to GitHub secret
 
-**Note:** Secrets are only needed for deployment status checking. Workflow works without them.
-
 ## Workflow
 
 ### Production Deploy (`production-deploy.yml`)
@@ -36,8 +34,10 @@ For deployment status checking (optional):
 **Actions:**
 1. Creates/updates `production` branch from `main`
 2. Pushes to `production` branch
-3. Cloudflare auto-deploys (external to workflow)
-4. Optionally checks deployment status via Cloudflare API
+3. Waits for Cloudflare Pages deployment
+4. Reports deployment URL and status
+
+**Uses:** [WalshyDev/cf-pages-await](https://github.com/WalshyDev/cf-pages-await) to monitor deployment
 
 **Usage:**
 ```bash
