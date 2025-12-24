@@ -385,14 +385,14 @@
 
 ### 📐 Recipe Parameters
 
-| Parameter       | Target                                |
-| --------------- | ------------------------------------- |
-| Ratio           | 1:10                                  |
-| Grind           | Medium-fine (360-660 microns)         |
-| Water Level     | Just below safety valve               |
-| Heat            | Medium-low                            |
-| Total Brew Time | 2-4 minutes (roast-dependent)         |
-| Basket Prep     | Fill level, do NOT tamp               |
+| Parameter       | Target                        |
+| --------------- | ----------------------------- |
+| Ratio           | 1:10                          |
+| Grind           | Medium-fine (360-660 microns) |
+| Water Level     | Just below safety valve       |
+| Heat            | Medium-low                    |
+| Total Brew Time | 2-4 minutes (roast-dependent) |
+| Basket Prep     | Fill level, do NOT tamp       |
 
 > 📄 **STATED**: "The standard ratio is around 1:10 water to coffee by weight" [Source: Octave Coffee Co.]
 
@@ -400,13 +400,13 @@
 
 ### 🔥 Moka Pot: Roast-Specific Parameters
 
-| Parameter               | Light Roast | Medium Roast | Dark Roast |
-| ----------------------- | ----------- | ------------ | ---------- |
-| Grind                   | Medium-fine | Medium       | Medium     |
-| Starting Water Temp     | 30-40°C     | 50-60°C      | 50-60°C    |
-| Brew Time               | 3-4 min     | 2-3 min      | 2-3 min    |
-| Heat Level              | Medium-low  | Medium-low   | Medium-low |
-| Extraction Risk         | Under       | Balanced     | Over       |
+| Parameter           | Light Roast | Medium Roast | Dark Roast |
+| ------------------- | ----------- | ------------ | ---------- |
+| Grind               | Medium-fine | Medium       | Medium     |
+| Starting Water Temp | 30-40°C     | 50-60°C      | 50-60°C    |
+| Brew Time           | 3-4 min     | 2-3 min      | 2-3 min    |
+| Heat Level          | Medium-low  | Medium-low   | Medium-low |
+| Extraction Risk     | Under       | Balanced     | Over       |
 
 > 📄 **STATED**: "Light roasts require a 3-4 minute brew time, while medium to dark roasts should average 2-3 minutes" [Source: Blue Tokai Coffee]
 
@@ -441,6 +441,7 @@
 ### ⚠️ Moka Pot Key Principles
 
 **DO:**
+
 - Start with warm/hot water (reduces bitter extraction)
 - Use medium-low heat
 - Fill basket level without tamping
@@ -448,6 +449,7 @@
 - Clean regularly (especially gasket)
 
 **DON'T:**
+
 - Use boiling water for light roasts (under-extraction)
 - Use cold water for any roast (bitter extraction)
 - Tamp the grounds (causes over-extraction)
@@ -461,17 +463,20 @@
 ### 🎯 Grind Size Guidance
 
 **Visual/Tactile:**
+
 - Slightly finer than table salt
 - Coarser than espresso
 - Finer than drip coffee
 - Sand-like texture
 
 **Micron Range:**
+
 - Target: 360-660 microns
 - SCA Recommendation: 650 microns
 - Similar to medium-fine filter grind
 
 **Adjustment by Roast:**
+
 - Light: Go FINER (lower end of range)
 - Medium: Middle of range
 - Dark: Go COARSER (upper end of range)
@@ -611,25 +616,25 @@ IF switching to DARKER roast:
 
 ### Timemore 078S (Espresso & Moka Pot)
 
-| Setting   | Use Case                      |
-| --------- | ----------------------------- |
-| 0.6 - 1.0 | Espresso: Light roasts        |
-| 1.0 - 1.8 | Espresso: Medium roasts       |
-| 1.8 - 2.6 | Espresso: Dark roasts         |
-| 2.5 - 3.0 | Moka Pot: Light roasts        |
-| 2.8 - 3.5 | Moka Pot: Medium roasts       |
-| 3.0 - 3.8 | Moka Pot: Dark roasts         |
+| Setting   | Use Case                |
+| --------- | ----------------------- |
+| 0.6 - 1.0 | Espresso: Light roasts  |
+| 1.0 - 1.8 | Espresso: Medium roasts |
+| 1.8 - 2.6 | Espresso: Dark roasts   |
+| 2.5 - 3.0 | Moka Pot: Light roasts  |
+| 2.8 - 3.5 | Moka Pot: Medium roasts |
+| 3.0 - 3.8 | Moka Pot: Dark roasts   |
 
 ### Sage Barista Pro (Espresso & Moka Pot)
 
-| Setting | Use Case                  |
-| ------- | ------------------------- |
-| 2-5     | Espresso: Light roasts    |
-| 8-12    | Espresso: Medium roasts   |
-| 10-15   | Espresso: Dark roasts     |
-| 16-18   | Moka Pot: Light roasts    |
-| 18-20   | Moka Pot: Medium roasts   |
-| 20-22   | Moka Pot: Dark roasts     |
+| Setting | Use Case                |
+| ------- | ----------------------- |
+| 2-5     | Espresso: Light roasts  |
+| 8-12    | Espresso: Medium roasts |
+| 10-15   | Espresso: Dark roasts   |
+| 16-18   | Moka Pot: Light roasts  |
+| 18-20   | Moka Pot: Medium roasts |
+| 20-22   | Moka Pot: Dark roasts   |
 
 ### Commandante C40 (Filter & Moka Pot)
 
