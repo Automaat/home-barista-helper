@@ -8,6 +8,7 @@
 	"brewMethod_v60": "Hario V60",
 	"brewMethod_chemex": "Chemex",
 	"brewMethod_aeropress": "Aeropress",
+	"brewMethod_moka": "Moka Pot",
 	"roast_title": "Select Roast Level",
 	"roast_light": "Light Roast",
 	"roast_medium": "Medium Roast",
