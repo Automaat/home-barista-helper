@@ -1,0 +1,11 @@
+{
+	"name": "Home Barista Helper",
+	"short_name": "Barista",
+	"description": "Mobile-first coffee dialing guide for home baristas",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#F5F5F5",
+	"theme_color": "#3E2723",
+	"orientation": "portrait-primary",
+	"icons": []
+}
