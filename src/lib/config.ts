@@ -1,0 +1,1 @@
+export const GA_MEASUREMENT_ID = 'G-3FQW6N7ZJE';
