@@ -1,0 +1,71 @@
+name: Production Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Push to Production Branch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Check if production branch exists
+        id: check_branch
+        run: |
+          if git ls-remote --heads origin production | grep production; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create or update production branch
+        id: push
+        run: |
+          if [ "${{ steps.check_branch.outputs.exists }}" == "false" ]; then
+            echo "Creating production branch from main"
+            git checkout main
+            git checkout -b production
+            git push -u origin production
+            echo "action=created" >> $GITHUB_OUTPUT
+          else
+            echo "Updating production branch from main"
+            git fetch origin production
+            git checkout production
+            git merge --ff-only origin/main || {
+              echo "Fast-forward merge failed. Creating merge commit..."
+              git merge -X theirs -m "chore: sync production with main" origin/main
+            }
+            git push origin production
+            echo "action=updated" >> $GITHUB_OUTPUT
+          fi
+          echo "sha=$(git rev-parse production)" >> $GITHUB_OUTPUT
+
+      - name: Wait for Cloudflare Pages deployment
+        id: cloudflare
+        uses: WalshyDev/cf-pages-await@66a2d4724571b44a8c6b52049dea8f2c388f7f3f # v1.2.2
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          project: home-barista-helper
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          commitHash: ${{ steps.push.outputs.sha }}
+
+      - name: Deployment complete
+        run: |
+          echo "✅ Deployment successful!"
+          echo "🌐 URL: ${{ steps.cloudflare.outputs.url }}"
+          echo "🔗 Alias: ${{ steps.cloudflare.outputs.alias }}"
+          echo "🌍 Environment: ${{ steps.cloudflare.outputs.environment }}"
