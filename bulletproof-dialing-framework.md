@@ -133,6 +133,71 @@
 
 ---
 
+## ☕ ESPRESSO (Sage Barista Pro)
+
+> 📄 **STATED**: "The Sage Barista Pro has 30 grind settings, with 1 being the finest and 30 being the coarsest" [Source: Brewing With Dani]
+
+### 🎚️ Grinder Settings
+
+| Parameter       | Value           |
+| --------------- | --------------- |
+| Grind Settings  | 1-30 (1=finest) |
+| Internal Burr   | Adjustable      |
+| Default Setting | 6               |
+
+> ⚠️ **INTERNAL BURR ADJUSTMENT**: If you cannot grind fine enough for light roasts (especially fresh beans), adjust the internal burr to a finer setting
+
+> 📄 **STATED**: "Fresh light roasts often need settings 2-3. If you cannot achieve this, the internal burr may need adjustment" [Source: Home Barista Forums]
+
+### 🔥 Espresso: Roast-Specific Parameters
+
+| Parameter   | Light Roast | Medium Roast | Dark Roast  |
+| ----------- | ----------- | ------------ | ----------- |
+| Grind       | 2-5         | 8-12         | 10-15       |
+| Temperature | 94-96°C     | 92-94°C      | 88-92°C     |
+| Ratio       | 1:2.5 - 1:3 | 1:2 - 1:2.5  | 1:1.5 - 1:2 |
+| Shot Time   | 28-35s      | 25-30s       | 22-28s      |
+
+> 📄 **STATED**: "For light roasts, start around 2-5 on the grind dial. Medium roasts work well at 8-12. Dark roasts typically need 10-15" [Source: Volcano Coffee Works, Iron & Fire]
+
+### 📐 Recipe Parameters
+
+| Parameter   | Target                 |
+| ----------- | ---------------------- |
+| Dose        | 18g (adjust to basket) |
+| Ratio       | 1:2 starting point     |
+| Temperature | 93°C default           |
+| Shot Time   | 25-30s                 |
+
+### 🔧 Dialing-In Protocol
+
+```
+1. LOCK DOSE → 18g (or basket capacity)
+2. SET RATIO → 1:2 (18g in → 36g out)
+3. START GRIND → Based on roast (see table above)
+   - Light: 2-5
+   - Medium: 10-11 (start middle of range)
+   - Dark: 12-13
+4. PULL SHOT → Target time based on roast
+   - Too fast (<20s) → grind FINER (adjust -1 to -2)
+   - Too slow (>35s) → grind COARSER (adjust +1 to +2)
+5. TASTE & ADJUST RATIO:
+   - Sour → INCREASE ratio (try 1:2.5 or 1:3 for light)
+   - Bitter → DECREASE ratio (try 1:1.8 or 1:1.5 for dark)
+6. FINE-TUNE → Adjust temp if needed (lighter=hotter, darker=cooler)
+```
+
+### ⚠️ Sage Barista Pro Notes
+
+- **Built-in grinder** - convenient but less precise than dedicated grinders
+- **Stepped adjustment** - each setting is a noticeable change
+- **Internal burr calibration** - critical for light roasts and fresh beans
+- **Unit variation** - different machines may need slightly different settings
+
+> 📄 **STATED**: "The grinder is decent for getting started, but you may find limitations when trying to dial in very light roasts or when beans are extremely fresh" [Source: Iron & Fire]
+
+---
+
 ## 🫖 HARIO V60 (Commandante C40)
 
 ### 🎚️ Grinder Settings
@@ -383,6 +448,14 @@
 | Medium | 1.2 - 1.8     | Baseline               |
 | Dark   | 1.8 - 2.4     | +0.4 to +0.6 coarser   |
 
+**Sage Barista Pro (Espresso)**
+
+| Roast  | Setting Range | Adjustment from Medium |
+| ------ | ------------- | ---------------------- |
+| Light  | 2-5           | -6 to -7 finer         |
+| Medium | 8-12          | Baseline               |
+| Dark   | 10-15         | +2 to +3 coarser       |
+
 **Commandante C40 (Filter)**
 
 | Method    | Light Roast  | Medium       | Dark Roast   |
@@ -430,6 +503,14 @@ IF switching to DARKER roast:
 | 1.0 - 1.8 | Medium roasts, standard       |
 | 1.8 - 2.6 | Dark roasts, lower extraction |
 
+### Sage Barista Pro (Espresso)
+
+| Setting | Use Case                  |
+| ------- | ------------------------- |
+| 2-5     | Light roasts, fresh beans |
+| 8-12    | Medium roasts, standard   |
+| 10-15   | Dark roasts, lower temp   |
+
 ### Commandante C40 (Filter)
 
 | Clicks | Brew Method              |
@@ -470,23 +551,27 @@ ITERATE → Adjust based on results
 
 ## 📚 Sources
 
-| #   | Source               | URL                                                                                                                                | Type     |
-| --- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| 1   | Espresso Aficionados | [espressoaf.com](https://espressoaf.com/guides/beginner.html)                                                                      | Guide    |
-| 2   | Honest Coffee Guide  | [honestcoffeeguide.com](https://honestcoffeeguide.com/comandante-c40-mk4-grind-settings/)                                          | Settings |
-| 3   | Basic Barista        | [thebasicbarista.com](https://thebasicbarista.com/en-us/blogs/article/comandante-grind-size-chart)                                 | Chart    |
-| 4   | Tasting Grounds      | [tastinggrounds.com](https://tastinggrounds.com/learn/grind-sizes)                                                                 | Chart    |
-| 5   | Counter Culture      | [counterculturecoffee.com](https://counterculturecoffee.com/blogs/counter-culture-coffee/guide-to-the-aeropress)                   | Guide    |
-| 6   | Low Key Coffee Snobs | [lowkeycoffeesnobs.com](https://www.lowkeycoffeesnobs.com/hario-v60-recipe/)                                                       | Recipe   |
-| 7   | Bean Ground          | [beanground.com](https://www.beanground.com/chemex-grind-size/)                                                                    | Guide    |
-| 8   | HexNub               | [hexnub.com](https://www.hexnub.com/blogs/news/chemex-ratio-a-chemex-brewing-guide)                                                | Guide    |
-| 9   | Coffee Geek TV       | [coffeegeek.tv](https://coffeegeek.tv/aeropress-grind-size/)                                                                       | Guide    |
-| 10  | Daniel Norris        | [danielnorris.com](https://www.danielnorris.com/blog/baratza-encore-grind-settings-for-v60-dialing-in-the-perfect-pour-over)       | Guide    |
-| 11  | Cafely               | [cafely.com](https://cafely.com/blogs/coffee-brew-guide/chemex)                                                                    | Guide    |
-| 12  | Perfect Daily Grind  | [perfectdailygrind.com](https://perfectdailygrind.com/2019/10/how-to-adjust-your-brewing-recipe-for-coffee-roast-level/)           | Guide    |
-| 13  | Savor Suite          | [savorsuite.com](https://savorsuite.com/espresso-grind-size-light-dark-roasts/)                                                    | Guide    |
-| 14  | QIKA Coffee          | [qikacoffee.com](https://www.qikacoffee.com/news/how-to-match-coffee-grind-size-with-roast-levels-a-guide-for-perfect-extraction/) | Guide    |
-| 15  | Spiller & Tait       | [spillerandtait.co.uk](https://www.spillerandtait.co.uk/blogs/news/how-to-adjust-your-coffee-brewing-to-fit-the-roast-level)       | Guide    |
+| #   | Source               | URL                                                                                                                                                              | Type     |
+| --- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| 1   | Espresso Aficionados | [espressoaf.com](https://espressoaf.com/guides/beginner.html)                                                                                                    | Guide    |
+| 2   | Honest Coffee Guide  | [honestcoffeeguide.com](https://honestcoffeeguide.com/comandante-c40-mk4-grind-settings/)                                                                        | Settings |
+| 3   | Basic Barista        | [thebasicbarista.com](https://thebasicbarista.com/en-us/blogs/article/comandante-grind-size-chart)                                                               | Chart    |
+| 4   | Tasting Grounds      | [tastinggrounds.com](https://tastinggrounds.com/learn/grind-sizes)                                                                                               | Chart    |
+| 5   | Counter Culture      | [counterculturecoffee.com](https://counterculturecoffee.com/blogs/counter-culture-coffee/guide-to-the-aeropress)                                                 | Guide    |
+| 6   | Low Key Coffee Snobs | [lowkeycoffeesnobs.com](https://www.lowkeycoffeesnobs.com/hario-v60-recipe/)                                                                                     | Recipe   |
+| 7   | Bean Ground          | [beanground.com](https://www.beanground.com/chemex-grind-size/)                                                                                                  | Guide    |
+| 8   | HexNub               | [hexnub.com](https://www.hexnub.com/blogs/news/chemex-ratio-a-chemex-brewing-guide)                                                                              | Guide    |
+| 9   | Coffee Geek TV       | [coffeegeek.tv](https://coffeegeek.tv/aeropress-grind-size/)                                                                                                     | Guide    |
+| 10  | Daniel Norris        | [danielnorris.com](https://www.danielnorris.com/blog/baratza-encore-grind-settings-for-v60-dialing-in-the-perfect-pour-over)                                     | Guide    |
+| 11  | Cafely               | [cafely.com](https://cafely.com/blogs/coffee-brew-guide/chemex)                                                                                                  | Guide    |
+| 12  | Perfect Daily Grind  | [perfectdailygrind.com](https://perfectdailygrind.com/2019/10/how-to-adjust-your-brewing-recipe-for-coffee-roast-level/)                                         | Guide    |
+| 13  | Savor Suite          | [savorsuite.com](https://savorsuite.com/espresso-grind-size-light-dark-roasts/)                                                                                  | Guide    |
+| 14  | QIKA Coffee          | [qikacoffee.com](https://www.qikacoffee.com/news/how-to-match-coffee-grind-size-with-roast-levels-a-guide-for-perfect-extraction/)                               | Guide    |
+| 15  | Spiller & Tait       | [spillerandtait.co.uk](https://www.spillerandtait.co.uk/blogs/news/how-to-adjust-your-coffee-brewing-to-fit-the-roast-level)                                     | Guide    |
+| 16  | Volcano Coffee Works | [volcanocoffeeworks.com](https://volcanocoffeeworks.com/blogs/journal/how-to-brew-on-a-sage-barista-pro)                                                         | Guide    |
+| 17  | Brewing With Dani    | [brewingwithdani.com](https://www.brewingwithdani.com/blog/what-is-the-best-grind-size-for-the-sage-and-breville-home-espresso-machines-with-a-built-in-grinder) | Settings |
+| 18  | Iron & Fire          | [ironandfire.co.uk](https://ironandfire.co.uk/2024/02/15/dialling-in-a-sage-barista-pro/)                                                                        | Guide    |
+| 19  | Home Barista Forums  | [home-barista.com](https://www.home-barista.com/tips/barista-express-and-pro-grinder-settings-t95422.html)                                                       | Forum    |
 
 ---
 

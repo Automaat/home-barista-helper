@@ -67,6 +67,26 @@ describe('Recipe Database', () => {
 			expect(recipe?.roastLevel).toBe('medium');
 		});
 
+		it('returns espresso recipe for light roast with Sage Barista Pro', () => {
+			const recipe = getRecipe('espresso', 'light', 'sage-barista-pro');
+			expect(recipe).toBeDefined();
+			expect(recipe?.brewMethod).toBe('espresso');
+			expect(recipe?.roastLevel).toBe('light');
+			expect(recipe?.grindSetting[0].value).toBe('2-5');
+		});
+
+		it('returns espresso recipe for medium roast with Sage Barista Pro', () => {
+			const recipe = getRecipe('espresso', 'medium', 'sage-barista-pro');
+			expect(recipe).toBeDefined();
+			expect(recipe?.grindSetting[0].value).toBe('8-12');
+		});
+
+		it('returns espresso recipe for dark roast with Sage Barista Pro', () => {
+			const recipe = getRecipe('espresso', 'dark', 'sage-barista-pro');
+			expect(recipe).toBeDefined();
+			expect(recipe?.grindSetting[0].value).toBe('10-15');
+		});
+
 		it('returns undefined for non-existent combination', () => {
 			const recipe = getRecipe('v60', 'light', 'timemore-078s');
 			expect(recipe).toBeUndefined();
