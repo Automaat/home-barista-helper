@@ -13,17 +13,37 @@
 
 ## Required GitHub Secrets
 
-### CLOUDFLARE_API_TOKEN
-1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/profile/api-tokens)
-2. Create Token → "Edit Cloudflare Workers" template
-3. Permissions:
-   - Account → Cloudflare Pages → Read
-4. Copy token to GitHub secret
+### Step 1: Get CLOUDFLARE_ACCOUNT_ID
 
-### CLOUDFLARE_ACCOUNT_ID
-1. Go to Cloudflare Dashboard
-2. Copy Account ID from URL or sidebar
-3. Add to GitHub secret
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com)
+2. Select **Workers & Pages** from sidebar
+3. Copy **Account ID** from right sidebar (under Account details)
+
+OR find it in URL: `https://dash.cloudflare.com/<ACCOUNT_ID>/pages`
+
+### Step 2: Get CLOUDFLARE_API_TOKEN
+
+1. Go to [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens)
+2. Click **Create Token**
+3. Use **"Edit Cloudflare Workers"** template (or create custom)
+4. Set permissions:
+   - Account → Cloudflare Pages → **Read**
+5. Click **Continue to summary**
+6. Click **Create Token**
+7. **Copy the token** (shown once only!)
+
+### Step 3: Add Secrets to GitHub
+
+1. Go to your repo: **Settings** → **Secrets and variables** → **Actions**
+2. Click **New repository secret**
+3. Add first secret:
+   - Name: `CLOUDFLARE_ACCOUNT_ID`
+   - Value: (paste account ID)
+4. Click **Add secret**
+5. Add second secret:
+   - Name: `CLOUDFLARE_API_TOKEN`
+   - Value: (paste API token)
+6. Click **Add secret**
 
 ## Workflow
 
