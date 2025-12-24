@@ -33,6 +33,14 @@ describe('Grinder Database', () => {
 			expect(jxPro).toBeDefined();
 		});
 
+		it('includes Sage Barista Pro', () => {
+			const sageBaristaPro = grinders.find((g) => g.id === 'sage-barista-pro');
+			expect(sageBaristaPro).toBeDefined();
+			expect(sageBaristaPro?.name).toBe('Barista Pro');
+			expect(sageBaristaPro?.brand).toBe('Sage');
+			expect(sageBaristaPro?.type).toBe('electric');
+		});
+
 		it('all grinders have required fields', () => {
 			grinders.forEach((grinder) => {
 				expect(grinder.id).toBeTruthy();

@@ -142,6 +142,63 @@ export const recipes: BrewRecipe[] = [
 		]
 	},
 
+	// ESPRESSO - Sage Barista Pro
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'light',
+		grindSetting: [
+			{
+				grinderId: 'sage-barista-pro',
+				value: '2-5',
+				unit: 'setting',
+				notes:
+					'Fresh light roasts often need 2-3. If cannot grind fine enough, adjust internal burr'
+			}
+		],
+		ratio: '1:2.5-1:3',
+		temperature: '94-96°C',
+		time: '28-35s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:2.5 (18g → 45g)',
+			'Set grind 2-5 (very fine)',
+			'Target 28-35s extraction',
+			'Taste: if sour, increase ratio to 1:3'
+		]
+	},
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'medium',
+		grindSetting: [
+			{ grinderId: 'sage-barista-pro', value: '8-12', unit: 'setting', notes: 'Start at 10-11' }
+		],
+		ratio: '1:2-1:2.5',
+		temperature: '92-94°C',
+		time: '25-30s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:2 (18g → 36g)',
+			'Set grind 8-12',
+			'Target 25-30s extraction',
+			'Adjust ratio if sour (increase) or bitter (decrease)'
+		]
+	},
+	{
+		brewMethod: 'espresso',
+		roastLevel: 'dark',
+		grindSetting: [{ grinderId: 'sage-barista-pro', value: '10-15', unit: 'setting' }],
+		ratio: '1:1.5-1:2',
+		temperature: '88-92°C',
+		time: '22-28s',
+		steps: [
+			'Lock dose (18g)',
+			'Set ratio 1:1.5 (18g → 27g)',
+			'Set grind 10-15 (coarser)',
+			'Target 22-28s extraction',
+			'Lower temp prevents over-extraction'
+		]
+	},
+
 	// V60 - Commandante C40 Standard Axle
 	{
 		brewMethod: 'v60',

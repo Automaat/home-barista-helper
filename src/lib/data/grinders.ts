@@ -34,6 +34,9 @@ export const grinders: Grinder[] = [
 	// Fellow
 	{ id: 'fellow-ode-gen2', name: 'Ode Gen 2', brand: 'Fellow', type: 'electric' },
 
+	// Sage/Breville
+	{ id: 'sage-barista-pro', name: 'Barista Pro', brand: 'Sage', type: 'electric' },
+
 	// Wilfa
 	{ id: 'wilfa-svart', name: 'Svart', brand: 'Wilfa', type: 'electric' },
 	{ id: 'wilfa-uniform', name: 'Uniform', brand: 'Wilfa', type: 'electric' }
