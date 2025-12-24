@@ -1,7 +1,7 @@
 # ☕ Bulletproof Coffee Dialing-In Framework
 
-**Date:** 2025-12-23
-**Tags:** #coffee #espresso #v60 #chemex #aeropress #commandante #timemore
+**Date:** 2025-12-24
+**Tags:** #coffee #espresso #v60 #chemex #aeropress #moka-pot #commandante #timemore
 **Focus:** Systematic approach to dialing in coffee across brew methods
 
 ---
@@ -366,6 +366,120 @@
 
 ---
 
+## 🫖 MOKA POT (All Grinders)
+
+### 🎚️ Grinder Settings by Grinder
+
+| Grinder                        | Light Roast | Medium Roast | Dark Roast |
+| ------------------------------ | ----------- | ------------ | ---------- |
+| **Timemore 078S**              | 2.5-3.0     | 2.8-3.5      | 3.0-3.8    |
+| **Commandante C40 (Standard)** | 12-14       | 14-16        | 16-18      |
+| **Commandante C40 (Red Clix)** | 24-28       | 28-32        | 32-36      |
+| **Sage Barista Pro**           | 16-18       | 18-20        | 20-22      |
+
+> 📄 **STATED**: "The recommended grind is medium, resembling table salt" [Source: Octave Coffee Co.]
+
+> 📄 **STATED**: "Comandante C40: 12-15 clicks for moka pot" [Source: Tasting Grounds]
+
+> 📄 **STATED**: "Grind size should be between 360-660 microns. The Specialty Coffee Association recommends 650 microns" [Source: Honest Coffee Guide]
+
+### 📐 Recipe Parameters
+
+| Parameter       | Target                                |
+| --------------- | ------------------------------------- |
+| Ratio           | 1:10                                  |
+| Grind           | Medium-fine (360-660 microns)         |
+| Water Level     | Just below safety valve               |
+| Heat            | Medium-low                            |
+| Total Brew Time | 2-4 minutes (roast-dependent)         |
+| Basket Prep     | Fill level, do NOT tamp               |
+
+> 📄 **STATED**: "The standard ratio is around 1:10 water to coffee by weight" [Source: Octave Coffee Co.]
+
+> 📄 **STATED**: "Fill the water chamber just below the safety valve and the coffee basket flush with the top" [Source: Cafely]
+
+### 🔥 Moka Pot: Roast-Specific Parameters
+
+| Parameter               | Light Roast | Medium Roast | Dark Roast |
+| ----------------------- | ----------- | ------------ | ---------- |
+| Grind                   | Medium-fine | Medium       | Medium     |
+| Starting Water Temp     | 30-40°C     | 50-60°C      | 50-60°C    |
+| Brew Time               | 3-4 min     | 2-3 min      | 2-3 min    |
+| Heat Level              | Medium-low  | Medium-low   | Medium-low |
+| Extraction Risk         | Under       | Balanced     | Over       |
+
+> 📄 **STATED**: "Light roasts require a 3-4 minute brew time, while medium to dark roasts should average 2-3 minutes" [Source: Blue Tokai Coffee]
+
+> 📄 **STATED**: "For light roasts, the optimum starting water temperature should be about 30-40°C. For medium to dark roasts: 50-60°C" [Source: Steampunk Coffee Roasters]
+
+> 📄 **STATED**: "Lighter roasts need a finer grind (medium-fine) while darker roasts can use a medium grind" [Source: Octave Coffee Co.]
+
+### 🔧 Dialing-In Protocol
+
+```
+1. FILL WATER → To just below safety valve at proper temp
+   - Light roasts: 30-40°C (75% cold + 25% hot)
+   - Medium/Dark: 50-60°C (50% cold + 50% hot)
+2. GRIND → Based on roast (see table above)
+3. FILL BASKET → Level, gentle tap, do NOT tamp
+4. ASSEMBLE → Screw top firmly but don't overtighten
+5. HEAT → Medium-low heat, lid open
+6. WATCH → Listen for gurgling/sputtering
+7. REMOVE → Immediately when gurgling starts
+8. COOL → Run bottom under cold water (optional)
+9. TASTE & ADJUST:
+   - Bitter → COARSER grind or lower heat
+   - Sour → FINER grind or hotter starting water
+   - Weak → FINER grind
+   - Harsh → COARSER grind or remove earlier
+```
+
+> 📄 **STATED**: "Use low to medium heat to ensure gradual and even extraction" [Source: Blue Bottle Coffee]
+
+> 📄 **STATED**: "Remove from heat once the coffee begins gurgling or sputtering out of the top spout" [Source: Blue Tokai Coffee]
+
+### ⚠️ Moka Pot Key Principles
+
+**DO:**
+- Start with warm/hot water (reduces bitter extraction)
+- Use medium-low heat
+- Fill basket level without tamping
+- Remove immediately when gurgling
+- Clean regularly (especially gasket)
+
+**DON'T:**
+- Use boiling water for light roasts (under-extraction)
+- Use cold water for any roast (bitter extraction)
+- Tamp the grounds (causes over-extraction)
+- Let it "finish" on heat (burnt taste)
+- Use high heat (bitter, metallic taste)
+
+> 📄 **STATED**: "Using hot water doesn't give enough brew time to the coffee for light roasts, which can lead to under extraction" [Source: Steampunk Coffee Roasters]
+
+> 📄 **STATED**: "Medium roasted coffees with chocolate, nut, or toffee notes are recommended" [Source: Two Chimps Coffee]
+
+### 🎯 Grind Size Guidance
+
+**Visual/Tactile:**
+- Slightly finer than table salt
+- Coarser than espresso
+- Finer than drip coffee
+- Sand-like texture
+
+**Micron Range:**
+- Target: 360-660 microns
+- SCA Recommendation: 650 microns
+- Similar to medium-fine filter grind
+
+**Adjustment by Roast:**
+- Light: Go FINER (lower end of range)
+- Medium: Middle of range
+- Dark: Go COARSER (upper end of range)
+
+> 📄 **STATED**: "The ideal grind for a moka pot is medium-fine or fine, with the grind slightly coarser than what you'd use for an espresso machine but finer than for a drip coffee maker" [Source: Alternative Brewing]
+
+---
+
 ## 🎯 Universal Troubleshooting Matrix
 
 | Taste                | Problem              | Solution                                                |
@@ -495,27 +609,34 @@ IF switching to DARKER roast:
 
 ## 📊 Quick Reference: Your Grinder Settings
 
-### Timemore 078S (Espresso)
+### Timemore 078S (Espresso & Moka Pot)
 
 | Setting   | Use Case                      |
 | --------- | ----------------------------- |
-| 0.6 - 1.0 | Light roasts, high pressure   |
-| 1.0 - 1.8 | Medium roasts, standard       |
-| 1.8 - 2.6 | Dark roasts, lower extraction |
+| 0.6 - 1.0 | Espresso: Light roasts        |
+| 1.0 - 1.8 | Espresso: Medium roasts       |
+| 1.8 - 2.6 | Espresso: Dark roasts         |
+| 2.5 - 3.0 | Moka Pot: Light roasts        |
+| 2.8 - 3.5 | Moka Pot: Medium roasts       |
+| 3.0 - 3.8 | Moka Pot: Dark roasts         |
 
-### Sage Barista Pro (Espresso)
+### Sage Barista Pro (Espresso & Moka Pot)
 
 | Setting | Use Case                  |
 | ------- | ------------------------- |
-| 2-5     | Light roasts, fresh beans |
-| 8-12    | Medium roasts, standard   |
-| 10-15   | Dark roasts, lower temp   |
+| 2-5     | Espresso: Light roasts    |
+| 8-12    | Espresso: Medium roasts   |
+| 10-15   | Espresso: Dark roasts     |
+| 16-18   | Moka Pot: Light roasts    |
+| 18-20   | Moka Pot: Medium roasts   |
+| 20-22   | Moka Pot: Dark roasts     |
 
-### Commandante C40 (Filter)
+### Commandante C40 (Filter & Moka Pot)
 
 | Clicks | Brew Method              |
 | ------ | ------------------------ |
 | 10-15  | Espresso-style Aeropress |
+| 12-18  | Moka Pot                 |
 | 20-22  | Standard Aeropress       |
 | 23-28  | V60 (single cup)         |
 | 28-32  | V60 (larger brew)        |

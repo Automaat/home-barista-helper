@@ -1,5 +1,5 @@
 export type RoastLevel = 'light' | 'medium' | 'dark';
-export type BrewMethod = 'espresso' | 'v60' | 'chemex' | 'aeropress';
+export type BrewMethod = 'espresso' | 'v60' | 'chemex' | 'aeropress' | 'moka';
 
 export interface Grinder {
 	id: string;
