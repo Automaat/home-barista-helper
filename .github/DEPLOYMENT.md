@@ -3,24 +3,29 @@
 ## Overview
 
 - **main** → testing/development
-- **production** → Cloudflare Pages deployment (manual trigger)
+- **production** → auto-deploys to Cloudflare Pages (configured in Cloudflare)
 
-## Required GitHub Secrets
+## How It Works
 
-Configure in repo Settings → Secrets and variables → Actions:
+Cloudflare Pages monitors the `production` branch and automatically deploys on push. This workflow just syncs main → production.
+
+## Optional GitHub Secrets
+
+For deployment status checking (optional):
 
 ### CLOUDFLARE_API_TOKEN
 1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/profile/api-tokens)
 2. Create Token → "Edit Cloudflare Workers" template
 3. Permissions:
-   - Account → Cloudflare Pages → Edit
+   - Account → Cloudflare Pages → Read
 4. Copy token to GitHub secret
 
 ### CLOUDFLARE_ACCOUNT_ID
 1. Go to Cloudflare Dashboard
-2. Select your account
-3. Copy Account ID from URL or sidebar
-4. Add to GitHub secret
+2. Copy Account ID from URL or sidebar
+3. Add to GitHub secret
+
+**Note:** Secrets are only needed for deployment status checking. Workflow works without them.
 
 ## Workflow
 
@@ -28,12 +33,11 @@ Configure in repo Settings → Secrets and variables → Actions:
 
 **Trigger:** Manual (workflow_dispatch)
 
-**Single workflow that:**
+**Actions:**
 1. Creates/updates `production` branch from `main`
-2. Builds SvelteKit app
-3. Deploys to Cloudflare Pages
-4. Checks deployment status
-5. Comments deployment URL on production branch commit
+2. Pushes to `production` branch
+3. Cloudflare auto-deploys (external to workflow)
+4. Optionally checks deployment status via Cloudflare API
 
 **Usage:**
 ```bash
@@ -44,8 +48,6 @@ Actions → Production Deploy → Run workflow
 gh workflow run production-deploy.yml
 ```
 
-**Deployment URL:** Posted as commit comment on production branch
-
 ## Deployment Flow
 
 ### Standard Release
@@ -54,11 +56,19 @@ gh workflow run production-deploy.yml
 git checkout main
 git pull
 
-# 2. Run production deploy workflow
+# 2. Trigger production sync
 gh workflow run production-deploy.yml
 
-# 3. Check deployment status
-gh run list --workflow=production-deploy.yml
+# 3. Cloudflare deploys automatically
+# Monitor: Cloudflare Pages dashboard or workflow logs
+```
+
+### Manual Deploy (Without Workflow)
+```bash
+git checkout production
+git merge main
+git push origin production
+# Cloudflare auto-deploys
 ```
 
 ## Configuration
