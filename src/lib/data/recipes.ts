@@ -161,7 +161,7 @@ export const recipes: BrewRecipe[] = [
 		steps: [
 			'Lock dose (18g)',
 			'Set ratio 1:2.5 (18g → 45g)',
-			'Set grind 2-5 (very fine)',
+			'Set grind 2-5',
 			'Target 28-35s extraction',
 			'Taste: if sour, increase ratio to 1:3'
 		]
