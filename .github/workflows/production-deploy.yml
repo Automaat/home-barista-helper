@@ -1,0 +1,98 @@
+name: Production Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Prepare & Deploy to Cloudflare
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Check if production branch exists
+        id: check_branch
+        run: |
+          if git ls-remote --heads origin production | grep production; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create or update production branch
+        run: |
+          if [ "${{ steps.check_branch.outputs.exists }}" == "false" ]; then
+            echo "Creating production branch from main"
+            git checkout -b production
+            git push -u origin production
+          else
+            echo "Updating production branch from main"
+            git fetch origin production
+            git checkout production
+            git merge --ff-only origin/main || {
+              echo "Fast-forward merge failed. Creating merge commit..."
+              git merge -X theirs -m "chore: sync production with main" origin/main
+            }
+            git push origin production
+          fi
+
+      - name: Setup mise
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate paraglide files
+        run: pnpm exec paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide
+
+      - name: Build application
+        run: pnpm build
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/pages-action@a8e56e21b4e3dcc279000d7d7d64b98c2a6db07c # v1.7.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: home-barista-helper
+          directory: build
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: production
+
+      - name: Check deployment status
+        run: |
+          echo "Deployment URL: ${{ steps.deploy.outputs.url }}"
+          echo "Deployment ID: ${{ steps.deploy.outputs.id }}"
+          echo "Environment: ${{ steps.deploy.outputs.environment }}"
+
+          if [ -n "${{ steps.deploy.outputs.url }}" ]; then
+            echo "✅ Deployment successful!"
+            echo "🌐 Live at: ${{ steps.deploy.outputs.url }}"
+          else
+            echo "❌ Deployment failed - no URL returned"
+            exit 1
+          fi
+
+      - name: Comment deployment URL
+        run: |
+          COMMIT_SHA=$(git rev-parse production)
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/commits/$COMMIT_SHA/comments \
+            -f body="🚀 Deployed to Cloudflare Pages: ${{ steps.deploy.outputs.url }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
