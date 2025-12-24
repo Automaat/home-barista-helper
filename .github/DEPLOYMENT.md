@@ -52,6 +52,7 @@ OR find it in URL: `https://dash.cloudflare.com/<ACCOUNT_ID>/pages`
 **Trigger:** Manual (workflow_dispatch)
 
 **Actions:**
+
 1. Creates/updates `production` branch from `main`
 2. Pushes to `production` branch
 3. Waits for Cloudflare Pages deployment
@@ -60,6 +61,7 @@ OR find it in URL: `https://dash.cloudflare.com/<ACCOUNT_ID>/pages`
 **Uses:** [WalshyDev/cf-pages-await](https://github.com/WalshyDev/cf-pages-await) to monitor deployment
 
 **Usage:**
+
 ```bash
 # Via GitHub UI
 Actions → Production Deploy → Run workflow
@@ -71,6 +73,7 @@ gh workflow run production-deploy.yml
 ## Deployment Flow
 
 ### Standard Release
+
 ```bash
 # 1. Merge features to main
 git checkout main
@@ -84,6 +87,7 @@ gh workflow run production-deploy.yml
 ```
 
 ### Manual Deploy (Without Workflow)
+
 ```bash
 git checkout production
 git merge main
@@ -98,6 +102,7 @@ git push origin production
 **Project name:** `home-barista-helper` (change in `deploy-production.yml:43`)
 
 **Build settings:**
+
 - Framework: SvelteKit
 - Build command: `pnpm build`
 - Output directory: `build`
@@ -106,6 +111,7 @@ git push origin production
 ### Branch Protection (Recommended)
 
 **production branch:**
+
 - Require pull request reviews (optional)
 - Require status checks (CI from main)
 - Restrict push access
@@ -113,11 +119,13 @@ git push origin production
 ## Monitoring
 
 **Deployment status:**
+
 - GitHub Actions logs
 - Cloudflare Pages dashboard
 - Commit comments (deployment URL)
 
 **Check deployment:**
+
 ```bash
 gh run list --workflow=deploy-production.yml
 gh run view <run-id>
