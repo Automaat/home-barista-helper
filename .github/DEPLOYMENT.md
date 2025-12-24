@@ -99,7 +99,7 @@ git push origin production
 
 ### Cloudflare Pages Project
 
-**Project name:** `home-barista-helper` (change in `deploy-production.yml:43`)
+**Project name:** `home-barista-helper` (change in `production-deploy.yml:61`)
 
 **Build settings:**
 
@@ -127,6 +127,6 @@ git push origin production
 **Check deployment:**
 
 ```bash
-gh run list --workflow=deploy-production.yml
+gh run list --workflow=production-deploy.yml
 gh run view <run-id>
 ```

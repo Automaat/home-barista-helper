@@ -36,6 +36,7 @@ jobs:
         run: |
           if [ "${{ steps.check_branch.outputs.exists }}" == "false" ]; then
             echo "Creating production branch from main"
+            git checkout main
             git checkout -b production
             git push -u origin production
             echo "action=created" >> $GITHUB_OUTPUT
