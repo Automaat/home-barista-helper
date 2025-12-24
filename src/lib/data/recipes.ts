@@ -479,6 +479,247 @@ export const recipes: BrewRecipe[] = [
 			'Steep 1:00-1:30',
 			'Press slowly 20-30s'
 		]
+	},
+
+	// MOKA POT - Timemore 078S
+	{
+		brewMethod: 'moka',
+		roastLevel: 'light',
+		grindSetting: [
+			{
+				grinderId: 'timemore-078s',
+				value: '2.5-3.0',
+				unit: 'setting',
+				notes: 'Medium-fine, between espresso and pour-over'
+			}
+		],
+		ratio: '1:10',
+		temperature: '30-40°C',
+		time: '3-4min',
+		steps: [
+			'Fill water chamber to below safety valve with 30-40°C water',
+			'Grind medium-fine (2.5-3.0)',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (3-4min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'medium',
+		grindSetting: [
+			{ grinderId: 'timemore-078s', value: '2.8-3.5', unit: 'setting', notes: 'Medium grind' }
+		],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Grind medium (2.8-3.5)',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'dark',
+		grindSetting: [
+			{ grinderId: 'timemore-078s', value: '3.0-3.8', unit: 'setting', notes: 'Medium grind' }
+		],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Grind medium (3.0-3.8)',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
+	},
+
+	// MOKA POT - Commandante C40 Standard Axle
+	{
+		brewMethod: 'moka',
+		roastLevel: 'light',
+		grindSetting: [
+			{
+				grinderId: 'commandante-c40-std',
+				value: '12-14',
+				unit: 'clicks',
+				notes: 'Medium-fine for slower extraction'
+			}
+		],
+		ratio: '1:10',
+		temperature: '30-40°C',
+		time: '3-4min',
+		steps: [
+			'Fill water chamber to below safety valve with 30-40°C water',
+			'Grind 12-14 clicks',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (3-4min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'medium',
+		grindSetting: [{ grinderId: 'commandante-c40-std', value: '14-16', unit: 'clicks' }],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Grind 14-16 clicks',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'dark',
+		grindSetting: [
+			{
+				grinderId: 'commandante-c40-std',
+				value: '16-18',
+				unit: 'clicks',
+				notes: 'Slightly coarser to prevent over-extraction'
+			}
+		],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Grind 16-18 clicks',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
+	},
+
+	// MOKA POT - Commandante C40 Red Clix
+	{
+		brewMethod: 'moka',
+		roastLevel: 'light',
+		grindSetting: [
+			{
+				grinderId: 'commandante-c40-red',
+				value: '24-28',
+				unit: 'clicks',
+				notes: 'Medium-fine for slower extraction'
+			}
+		],
+		ratio: '1:10',
+		temperature: '30-40°C',
+		time: '3-4min',
+		steps: [
+			'Fill water chamber to below safety valve with 30-40°C water',
+			'Grind 24-28 clicks (Red Clix)',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (3-4min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'medium',
+		grindSetting: [{ grinderId: 'commandante-c40-red', value: '28-32', unit: 'clicks' }],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Grind 28-32 clicks (Red Clix)',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'dark',
+		grindSetting: [
+			{
+				grinderId: 'commandante-c40-red',
+				value: '32-36',
+				unit: 'clicks',
+				notes: 'Slightly coarser to prevent over-extraction'
+			}
+		],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Grind 32-36 clicks (Red Clix)',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
+	},
+
+	// MOKA POT - Sage Barista Pro
+	{
+		brewMethod: 'moka',
+		roastLevel: 'light',
+		grindSetting: [
+			{
+				grinderId: 'sage-barista-pro',
+				value: '16-18',
+				unit: 'setting',
+				notes: 'Medium-fine for slower extraction'
+			}
+		],
+		ratio: '1:10',
+		temperature: '30-40°C',
+		time: '3-4min',
+		steps: [
+			'Fill water chamber to below safety valve with 30-40°C water',
+			'Set grind 16-18',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (3-4min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'medium',
+		grindSetting: [{ grinderId: 'sage-barista-pro', value: '18-20', unit: 'setting' }],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Set grind 18-20',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
+	},
+	{
+		brewMethod: 'moka',
+		roastLevel: 'dark',
+		grindSetting: [
+			{
+				grinderId: 'sage-barista-pro',
+				value: '20-22',
+				unit: 'setting',
+				notes: 'Slightly coarser to prevent over-extraction'
+			}
+		],
+		ratio: '1:10',
+		temperature: '50-60°C',
+		time: '2-3min',
+		steps: [
+			'Fill water chamber to below safety valve with 50-60°C water',
+			'Set grind 20-22',
+			'Fill basket level, do not tamp',
+			'Medium-low heat',
+			'Remove when gurgling/sputtering (2-3min)'
+		]
 	}
 ];
 

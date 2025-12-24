@@ -8,7 +8,8 @@
 		{ value: 'espresso', label: 'Espresso', icon: Coffee },
 		{ value: 'v60', label: 'Hario V60', icon: Droplet },
 		{ value: 'chemex', label: 'Chemex', icon: Droplet },
-		{ value: 'aeropress', label: 'Aeropress', icon: Coffee }
+		{ value: 'aeropress', label: 'Aeropress', icon: Coffee },
+		{ value: 'moka', label: 'Moka Pot', icon: Coffee }
 	];
 
 	function selectMethod(method: BrewMethod) {
