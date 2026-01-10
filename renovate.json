@@ -4,6 +4,7 @@
 	"schedule": ["before 3am on Monday"],
 	"timezone": "Europe/Warsaw",
 	"labels": ["dependencies"],
+	"reviewers": ["Automaat"],
 	"separateMinorPatch": true,
 	"prConcurrentLimit": 3,
 	"prHourlyLimit": 2,
