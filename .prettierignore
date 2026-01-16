@@ -12,3 +12,7 @@ package-lock.json
 yarn.lock
 
 .claude/settings.local.json
+
+# Inlang generated files (only settings.json is committed)
+project.inlang/*
+!project.inlang/settings.json
