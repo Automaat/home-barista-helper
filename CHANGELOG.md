@@ -1,0 +1,56 @@
+# Changelog
+
+## [0.1.0](https://github.com/Automaat/home-barista-helper/compare/home-barista-helper-v0.0.1...home-barista-helper-v0.1.0) (2026-08-03)
+
+
+### Features
+
+* add Codecov integration for test coverage tracking ([608386c](https://github.com/Automaat/home-barista-helper/commit/608386ce7e4f5d02feac2ecdf548898665ffab07))
+* add Commandante espresso recipes and fix Chemex grind settings ([0478dfa](https://github.com/Automaat/home-barista-helper/commit/0478dfab503cc9ccad5eabbfa64678a50eea68e9))
+* add Commandante espresso recipes and fix Chemex grind settings ([#11](https://github.com/Automaat/home-barista-helper/issues/11)) ([b29708d](https://github.com/Automaat/home-barista-helper/commit/b29708d78657eae65d9c312243d8d36fd691186a))
+* add comprehensive CLAUDE.md ([6391367](https://github.com/Automaat/home-barista-helper/commit/6391367e5ffd4e6a7e2fa9af5660520d49e952db))
+* add custom SVG icons for brew methods and roast levels ([198d503](https://github.com/Automaat/home-barista-helper/commit/198d503e5e47a1debbd5a87f745eaf1f1699b26e))
+* add deployment status tracking with cf-pages-await ([8080d02](https://github.com/Automaat/home-barista-helper/commit/8080d025de26bc6f1370b5c71cf3ccd86b3ce894))
+* add Google Analytics 4 tracking ([#19](https://github.com/Automaat/home-barista-helper/issues/19)) ([88ac582](https://github.com/Automaat/home-barista-helper/commit/88ac5822972cbeacf8160c948c0a98daacb5da74))
+* add moka pot brewing method with grinder-specific recipes ([#20](https://github.com/Automaat/home-barista-helper/issues/20)) ([fcb54ee](https://github.com/Automaat/home-barista-helper/commit/fcb54ee42b222dd46a951f9822ec7d459e8b2ec9))
+* add Phase 7 animations - lightweight CSS-based ([0451a22](https://github.com/Automaat/home-barista-helper/commit/0451a22206849f7ac70c4592b5b2ade7e759b2be))
+* add Sage Barista Pro grinder with espresso recipes ([da4d568](https://github.com/Automaat/home-barista-helper/commit/da4d568f160714bf0accd216fd71931f82af8319))
+* add Sage Barista Pro grinder with espresso recipes ([#14](https://github.com/Automaat/home-barista-helper/issues/14)) ([1ba09ae](https://github.com/Automaat/home-barista-helper/commit/1ba09ae2be51e7603ea4dfb2ea181dd8ca635180))
+* add SEO meta tags, favicon, and PWA manifest (Phase 9 polish) ([90f0a1e](https://github.com/Automaat/home-barista-helper/commit/90f0a1e8d972afd552f9b6c5c70f25cf746ee61b))
+* add SEO meta tags, favicon, and PWA manifest (Phase 9 polish) ([#12](https://github.com/Automaat/home-barista-helper/issues/12)) ([1e34d34](https://github.com/Automaat/home-barista-helper/commit/1e34d34763cdebd10ab89c9dfa2c4459f13acb05))
+* add single-action Cloudflare Pages deployment workflow ([3d51301](https://github.com/Automaat/home-barista-helper/commit/3d51301316a7b4d022fe375f375a99ab5fe9a252))
+* add single-action Cloudflare Pages deployment workflow ([#13](https://github.com/Automaat/home-barista-helper/issues/13)) ([1120fec](https://github.com/Automaat/home-barista-helper/commit/1120fece15c48913b7cf96cdab9043387db1bffc))
+* add social media image tags and clean up manifest ([0866f8b](https://github.com/Automaat/home-barista-helper/commit/0866f8b111bf27ebd331b193da49abd270e65056))
+* implement Phase 2 data structure ([4c6eed0](https://github.com/Automaat/home-barista-helper/commit/4c6eed092744a4ed0160fd529514721d7f6e166d))
+* implement Phase 2 data structure ([#1](https://github.com/Automaat/home-barista-helper/issues/1)) ([97faa48](https://github.com/Automaat/home-barista-helper/commit/97faa4881689ed60309a71f3d066131bda6373d2))
+* implement Phase 3 core components ([fe5e7fc](https://github.com/Automaat/home-barista-helper/commit/fe5e7fcbbf247b700f24c107eb135fc656396afc))
+* implement Phase 3 core components ([#2](https://github.com/Automaat/home-barista-helper/issues/2)) ([f5d4edd](https://github.com/Automaat/home-barista-helper/commit/f5d4edd69ed61190aa53333abe20180197435020))
+* implement Phase 4 i18n infrastructure ([dd4802c](https://github.com/Automaat/home-barista-helper/commit/dd4802c41e472ad64f616e073eef5f43a9a83551))
+* implement Phase 4 i18n infrastructure ([#5](https://github.com/Automaat/home-barista-helper/issues/5)) ([86e9006](https://github.com/Automaat/home-barista-helper/commit/86e900646d541a14be6b16aa8d3cd4471a0c671c))
+* implement Phase 5 UI enhancements ([05c847c](https://github.com/Automaat/home-barista-helper/commit/05c847c145f5259261023b40521e9c3883416b34))
+* implement Phase 5 UI enhancements ([#6](https://github.com/Automaat/home-barista-helper/issues/6)) ([d501500](https://github.com/Automaat/home-barista-helper/commit/d501500fb77d8c008f8866cef6eefa1960f73db2))
+* migrate to Paraglide JS v2 and improve wizard UX ([d8b2ce7](https://github.com/Automaat/home-barista-helper/commit/d8b2ce76ac7571406a30f536a35ea11930d0aa4a))
+* Phase 6 - Icons & Graphics ([#8](https://github.com/Automaat/home-barista-helper/issues/8)) ([4691b07](https://github.com/Automaat/home-barista-helper/commit/4691b0742051e27e990ebe44c81ff111804e82ae))
+* Phase 7 - Animations ([#9](https://github.com/Automaat/home-barista-helper/issues/9)) ([6a3b9da](https://github.com/Automaat/home-barista-helper/commit/6a3b9da9f4c79d134f8b9d3a2a02f2b04b4dc9cb))
+
+
+### Bug Fixes
+
+* add jest-dom types to tsconfig ([4a7ec3e](https://github.com/Automaat/home-barista-helper/commit/4a7ec3e1d4a297cc16b84998f449d23714c5db87))
+* address PR review comments ([4c764f8](https://github.com/Automaat/home-barista-helper/commit/4c764f8bb90e62820a3a55d247612a59f05f90b7))
+* apply PR review feedback ([66c4bdb](https://github.com/Automaat/home-barista-helper/commit/66c4bdb5403c11f1a90813caeb7d45aaf538cfe6))
+* apply prettier formatting to ResultsDisplay ([00cac51](https://github.com/Automaat/home-barista-helper/commit/00cac51332512919de3d9913747a1e44602419f7))
+* **ci:** add Codecov token to workflow ([25e92dd](https://github.com/Automaat/home-barista-helper/commit/25e92dde6c53b4b527500481a0f46f465d19893e))
+* correct AeroPress trademark and document getRecipe() fallback ([e53beaf](https://github.com/Automaat/home-barista-helper/commit/e53beafb3ce990967fef93371cc4bb86efcd1057))
+* correct plugin order - paraglide before sveltekit ([c053f63](https://github.com/Automaat/home-barista-helper/commit/c053f63a5e3703f38d3b2243dbd3617b5502ca3d))
+* filter grinders by available recipes ([#10](https://github.com/Automaat/home-barista-helper/issues/10)) ([53b9bf0](https://github.com/Automaat/home-barista-helper/commit/53b9bf0b1ba89a027adf3ea4950a2717599e4a65))
+* filter grinders by available recipes, remove fallback ([07d2051](https://github.com/Automaat/home-barista-helper/commit/07d2051de10b5b12e4cbad99e6e05751db237fa4))
+* grant deployments:write permission to production workflow ([7379d33](https://github.com/Automaat/home-barista-helper/commit/7379d33660bd63b1c44dd36794555be275c3fa1d))
+* grant deployments:write permission to production workflow ([#16](https://github.com/Automaat/home-barista-helper/issues/16)) ([0dd991c](https://github.com/Automaat/home-barista-helper/commit/0dd991cabfe21eb3cebb513015f344501d849af5))
+* rename state to wizardState to avoid conflict with $state rune ([94728d5](https://github.com/Automaat/home-barista-helper/commit/94728d55072b3b168d814129ce67891ddf2222b9))
+* reset wizard state on Start Over click ([4881c9c](https://github.com/Automaat/home-barista-helper/commit/4881c9cfdc35a1441a97728d26420d56e32cb77e))
+* resolve CI build failures ([7fd56fb](https://github.com/Automaat/home-barista-helper/commit/7fd56fb80e9210973f1616239de0bbc543001218))
+* resolve linter and type errors in test files ([2793c93](https://github.com/Automaat/home-barista-helper/commit/2793c9379442771a54b62d1346fd600306fcef1e))
+* Tailwind CSS and build configuration ([052997a](https://github.com/Automaat/home-barista-helper/commit/052997aaa79d105b3681322d213b773dd334b1ff))
+* update cf-pages-await action to v1.3.1 ([6cf1be0](https://github.com/Automaat/home-barista-helper/commit/6cf1be037680ae4a4c35f126b00d66fd2fe61752))
+* update cf-pages-await action to v1.3.1 ([#15](https://github.com/Automaat/home-barista-helper/issues/15)) ([3a8ad64](https://github.com/Automaat/home-barista-helper/commit/3a8ad644cd163a0406e802de910c6a696aeca6d0))
